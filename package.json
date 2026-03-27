@@ -1,0 +1,35 @@
+{
+  "name": "@assemble/design-system",
+  "version": "0.1.0",
+  "description": "Design tokens and React UI primitives for A.Team Assemble",
+  "type": "module",
+  "sideEffects": [
+    "**/*.module.css",
+    "**/*.css"
+  ],
+  "exports": {
+    "./tokens/color-palette.css": "./tokens/color-palette.css",
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./tooltip": {
+      "types": "./src/Tooltip/index.ts",
+      "default": "./src/Tooltip/index.ts"
+    }
+  },
+  "files": [
+    "tokens",
+    "src",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dpolevoy1/design-system.git"
+  },
+  "license": "UNLICENSED"
+}
