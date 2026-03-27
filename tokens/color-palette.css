@@ -10,10 +10,10 @@
   --color-primary-300-hover: #f2f6ff;
   --color-primary-400-focus: #edf2ff;
   --color-primary-500: #d9e1ff;
-  --color-primary-600-main: #1745f7;
+  --color-primary-600: #1745f7;
   --color-primary-700: #0e2991;
-  /** Alias — main brand blue (same as 600 - Main) */
-  --color-primary-600: var(--color-primary-600-main);
+  /** Alias — main brand blue (same as 600) */
+  --color-primary-600: var(--color-primary-600);
 
   /* Figma-style aliases */
   --Primary-100: var(--color-primary-100);
