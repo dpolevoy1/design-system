@@ -1,25 +1,73 @@
 # A.Team Assemble — Design system
 
-Design tokens and shared React primitives for **A.Team Assemble**, aligned with the [Figma design system](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/).
+Shared **design tokens** and **React primitives** for [A.Team Assemble](https://github.com/dpolevoy1/SidebarMenu), aligned with the Figma file [**Assemble — Design system**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/).
+
+## Install
+
+```json
+{
+  "dependencies": {
+    "@assemble/design-system": "github:dpolevoy1/design-system#main"
+  }
+}
+```
+
+Pin a **commit SHA** for reproducible builds:
+
+```json
+"@assemble/design-system": "github:dpolevoy1/design-system#eef8a7e"
+```
+
+```bash
+npm install
+```
+
+### Vite
+
+If you consume **TypeScript + CSS modules** from this package, exclude it from dependency pre-bundling so Vite transforms it correctly:
+
+```ts
+// vite.config.ts
+export default defineConfig({
+  optimizeDeps: {
+    exclude: ["@assemble/design-system"],
+  },
+});
+```
+
+## Package exports
+
+| Subpath | Contents |
+|---------|----------|
+| `@assemble/design-system` | `Tooltip`, `ToggleIndicator`, `toggleRowDataProps`, … |
+| `@assemble/design-system/tooltip` | Tooltip only |
+| `@assemble/design-system/toggle-indicator` | Toggle only |
+| `@assemble/design-system/tokens/color-palette.css` | CSS variables: full color palette + toggle `--toggle-*` tokens |
+
+Import tokens once in your app shell:
+
+```css
+@import "@assemble/design-system/tokens/color-palette.css";
+```
+
+---
 
 ## Contents
 
 | Path | Description |
 |------|-------------|
-| [`tokens/color-palette.css`](./tokens/color-palette.css) | Full palette + **toggle tokens** (second `:root` block): `--toggle-*` geometry, motion, track/thumb colors for off/on × default, hover, focus, disabled |
-| [`src/Tooltip`](./src/Tooltip) | Default tooltip: dark surface, label + optional shortcut, follows pointer (to the right and slightly below) |
-| [`src/ToggleIndicator`](./src/ToggleIndicator) | Pill switch **knob only** (Figma **8096:162**); parent row supplies `toggleRowDataProps()` + `aria-disabled` when needed |
+| [`tokens/color-palette.css`](./tokens/color-palette.css) | **Primary** (100–700), **Secondary** (100–700), **Neutral** (100–700 + list outline), **Additional** (blue light/dark, green, orange, red), semantic **`--color-error`**, tooltip panel **`--color-tooltip-panel-background`**, and a second **`:root`** block with **`--toggle-*`** (geometry, motion, state colors). |
+| [`src/Tooltip`](./src/Tooltip) | Default tooltip: dark panel, label + optional shortcut; **pointer** to the **right** and **slightly below** the cursor. |
+| [`src/ToggleIndicator`](./src/ToggleIndicator) | Pill switch **thumb/track** only (Figma **8096:162**). Parent control must spread **`toggleRowDataProps()`** and set **`aria-disabled`** when needed so hover / focus / disabled styles apply. |
 
-### Toggle indicator — states
+### Toggle — interaction states
 
 | | Default | Hover (row) | Focus-visible (row) | Disabled (`aria-disabled` on row) |
 |--|---------|-------------|----------------------|-----------------------------------|
-| **Off** | Secondary/400 (`--toggle-track-off`) | `#9ba5b2` | Secondary/400 + ring `rgb(167 178 192 / 12%)` | Secondary/100 |
+| **Off** | Secondary/400 | `#9ba5b2` | Secondary/400 + ring `rgb(167 178 192 / 12%)` | Secondary/100 |
 | **On** | Primary/600 | `#143dde` | Primary/600 + ring `rgb(11 65 255 / 12%)` | Primary/500 |
 
-Layout: **35×20** px track, **16** px thumb, **15** px travel; easing `cubic-bezier(0.22, 1, 0.36, 1)`, **0.22s**.
-
-React usage:
+Layout: **35×20** px track, **16** px thumb, **15** px travel; **0.22s**, `cubic-bezier(0.22, 1, 0.36, 1)`.
 
 ```tsx
 import {
@@ -39,23 +87,12 @@ import {
 </button>
 ```
 
-## Using tokens
+### Tooltip
 
-Import the palette once in your app entry (or root layout):
-
-```css
-@import "@assemble/design-system/tokens/color-palette.css";
-```
-
-If you depend on this repo via Git (no package alias), use a relative path or configure your bundler’s `resolve.alias`.
-
-## Using the Tooltip (React)
-
-Requires React 18+ and a bundler that supports CSS modules (e.g. Vite).
+Requires **React 18+**, **react-dom**, and a bundler with **CSS modules** (e.g. Vite).
 
 ```tsx
 import { Tooltip } from "@assemble/design-system";
-// or: import { Tooltip } from "@assemble/design-system/tooltip";
 
 import "@assemble/design-system/tokens/color-palette.css";
 
@@ -64,22 +101,25 @@ import "@assemble/design-system/tokens/color-palette.css";
 </Tooltip>
 ```
 
-Ensure **Inter** is loaded in your app for typography that matches the spec.
+Load **Inter** in the host app for Body/Small typography to match specs.
 
-## Consuming from GitHub
+---
 
-Add to your app’s `package.json`:
+## Developing this repo
 
-```json
-{
-  "dependencies": {
-    "@assemble/design-system": "github:dpolevoy1/design-system#main"
-  }
-}
+```bash
+git clone git@github.com:dpolevoy1/design-system.git
+cd design-system
+npm install
+npx tsc --noEmit
 ```
 
-Adjust the branch or pin a commit SHA as needed.
+---
 
 ## Versioning
 
-`0.x` — initial extraction from the Assemble product; breaking changes may occur until a stable `1.0`.
+**`0.x`** — tokens and components evolve with the Assemble product; breaking changes are possible until **`1.0`**. Prefer **pinning a git SHA** in consuming apps.
+
+## License
+
+`UNLICENSED` — internal / team use unless otherwise noted in repository settings.
