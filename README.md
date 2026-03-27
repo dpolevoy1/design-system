@@ -6,7 +6,7 @@ Design tokens and shared React primitives for **A.Team Assemble**, aligned with 
 
 | Path | Description |
 |------|-------------|
-| [`tokens/color-palette.css`](./tokens/color-palette.css) | CSS custom properties — Primary, Secondary, Additional (orange, red), Neutral, semantic error, tooltip colors |
+| [`tokens/color-palette.css`](./tokens/color-palette.css) | Full palette: **Primary** (100–700), **Secondary** (100–700), **Neutral** (100–700 + list outline), **Additional** (blue light/dark, green, orange, red), **semantic error**, **tooltip panel** (`--color-tooltip-panel-background`, not Neutral/600) |
 | [`src/Tooltip`](./src/Tooltip) | Default tooltip: dark surface, label + optional shortcut, follows pointer (to the right and slightly below) |
 
 ## Using tokens

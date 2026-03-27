@@ -1,37 +1,86 @@
 /**
- * Assemble color palette — names mirror Figma variables (Design system).
- * Examples: Primary/200, Primary/300 - Hover, Secondary/600, Additional/orange, Additional/red (errors)
+ * Assemble color palette — token names match Figma “Color: Palette tokens”
+ * (Primary, Secondary, Neutral, Additional).
  */
 
 :root {
-  /* Primary */
+  /* ─── Primary ─── */
+  --color-primary-100: #fcfdff;
   --color-primary-200: #f7f9ff;
-  --Primary-200: var(--color-primary-200);
   --color-primary-300-hover: #f2f6ff;
   --color-primary-400-focus: #edf2ff;
-  --color-primary-600: #1745f7;
+  --color-primary-500: #d9e1ff;
+  --color-primary-600-main: #1745f7;
+  --color-primary-700: #0e2991;
+  /** Alias — main brand blue (same as 600 - Main) */
+  --color-primary-600: var(--color-primary-600-main);
 
-  /* Secondary */
+  /* Figma-style aliases */
+  --Primary-100: var(--color-primary-100);
+  --Primary-200: var(--color-primary-200);
+  --Primary-300---Hover: var(--color-primary-300-hover);
+  --Primary-400---Focus: var(--color-primary-400-focus);
+  --Primary-500: var(--color-primary-500);
+  --Primary-600---Main: var(--color-primary-600-main);
+  --Primary-700: var(--color-primary-700);
+
+  /* ─── Secondary ─── */
+  --color-secondary-100: #e3e7ec;
+  --color-secondary-200: #dadfe5;
   --color-secondary-300: #c5ced9;
+  --color-secondary-400: #a7b2c0;
   --color-secondary-500: #67748b;
   --color-secondary-600: #3e4a5e;
   --color-secondary-700: #2e3747;
-  /* Figma token alias (tooltips / overlays) */
-  --Secondary-300: var(--color-secondary-300);
-  --Secondary-600: var(--color-secondary-600);
 
-  /* Additional */
+  --Secondary-100: var(--color-secondary-100);
+  --Secondary-200: var(--color-secondary-200);
+  --Secondary-300: var(--color-secondary-300);
+  --Secondary-400: var(--color-secondary-400);
+  --Secondary-500: var(--color-secondary-500);
+  --Secondary-600: var(--color-secondary-600);
+  --Secondary-700: var(--color-secondary-700);
+
+  /* ─── Neutral ─── */
+  --color-neutral-100: #ffffff;
+  --color-neutral-200: #fcfcfc;
+  --color-neutral-300: #f7f7f7;
+  --color-neutral-400-list-outline: #efefef;
+  --color-neutral-500: #e0e0e0;
+  --color-neutral-600: #919191;
+  --color-neutral-700: #030816;
+
+  /** @deprecated Use --color-neutral-100 — kept for older app imports */
+  --color-neutral-white: var(--color-neutral-100);
+
+  --Neutral-100: var(--color-neutral-100);
+  --Neutral-200: var(--color-neutral-200);
+  --Neutral-300: var(--color-neutral-300);
+  --Neutral-400---List-outline: var(--color-neutral-400-list-outline);
+  --Neutral-500: var(--color-neutral-500);
+  --Neutral-600: var(--color-neutral-600);
+  --Neutral-700: var(--color-neutral-700);
+
+  /* ─── Additional ─── */
+  --color-additional-blue-light: #b1b9c5;
+  --color-additional-blue-dark: #64748b;
+  --color-additional-green: #5ac020;
   --color-additional-orange: #ff7b00;
   --color-additional-red: #ff3b4b;
-  /* Semantic — error UI (maps to Additional/red) */
+
+  --Additional-Blue---light: var(--color-additional-blue-light);
+  --Additional-Blue---dark: var(--color-additional-blue-dark);
+  --Additional-green: var(--color-additional-green);
+  --Additional-orange: var(--color-additional-orange);
+  --Additional-red: var(--color-additional-red);
+
+  /* Semantic */
   --color-error: var(--color-additional-red);
 
-  /* Neutral */
-  --color-neutral-white: #ffffff;
-  /* Figma Neutral-400 / List outline */
-  --color-neutral-400-list-outline: #efefef;
-  --Neutral-400---List-outline: var(--color-neutral-400-list-outline);
-  /* Tooltip surface — Figma Color-Neutral-600 (distinct from gray neutral-600) */
-  --Color-Neutral-600: #02071b;
-  --Neutral-100: var(--color-neutral-white);
+  /**
+   * Tooltip panel fill (dark UI). Not the same as Neutral/600 (#919191);
+   * use this for default Tooltip component background.
+   */
+  --color-tooltip-panel-background: #02071b;
+  --Color-Neutral-600: var(--color-tooltip-panel-background);
 }
