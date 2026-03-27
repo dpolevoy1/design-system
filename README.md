@@ -6,8 +6,38 @@ Design tokens and shared React primitives for **A.Team Assemble**, aligned with 
 
 | Path | Description |
 |------|-------------|
-| [`tokens/color-palette.css`](./tokens/color-palette.css) | Full palette: **Primary** (100–700), **Secondary** (100–700), **Neutral** (100–700 + list outline), **Additional** (blue light/dark, green, orange, red), **semantic error**, **tooltip panel** (`--color-tooltip-panel-background`, not Neutral/600) |
+| [`tokens/color-palette.css`](./tokens/color-palette.css) | Full palette + **toggle tokens** (second `:root` block): `--toggle-*` geometry, motion, track/thumb colors for off/on × default, hover, focus, disabled |
 | [`src/Tooltip`](./src/Tooltip) | Default tooltip: dark surface, label + optional shortcut, follows pointer (to the right and slightly below) |
+| [`src/ToggleIndicator`](./src/ToggleIndicator) | Pill switch **knob only** (Figma **8096:162**); parent row supplies `toggleRowDataProps()` + `aria-disabled` when needed |
+
+### Toggle indicator — states
+
+| | Default | Hover (row) | Focus-visible (row) | Disabled (`aria-disabled` on row) |
+|--|---------|-------------|----------------------|-----------------------------------|
+| **Off** | Secondary/400 (`--toggle-track-off`) | `#9ba5b2` | Secondary/400 + ring `rgb(167 178 192 / 12%)` | Secondary/100 |
+| **On** | Primary/600 | `#143dde` | Primary/600 + ring `rgb(11 65 255 / 12%)` | Primary/500 |
+
+Layout: **35×20** px track, **16** px thumb, **15** px travel; easing `cubic-bezier(0.22, 1, 0.36, 1)`, **0.22s**.
+
+React usage:
+
+```tsx
+import {
+  ToggleIndicator,
+  toggleRowDataProps,
+} from "@assemble/design-system";
+
+<button
+  type="button"
+  role="menuitemcheckbox"
+  aria-checked={darkMode}
+  {...toggleRowDataProps()}
+  onClick={() => setDarkMode((v) => !v)}
+>
+  <span>Dark mode</span>
+  <ToggleIndicator on={darkMode} aria-hidden />
+</button>
+```
 
 ## Using tokens
 

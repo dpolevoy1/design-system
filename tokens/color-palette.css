@@ -10,10 +10,10 @@
   --color-primary-300-hover: #f2f6ff;
   --color-primary-400-focus: #edf2ff;
   --color-primary-500: #d9e1ff;
-  --color-primary-600: #1745f7;
+  --color-primary-600-main: #1745f7;
   --color-primary-700: #0e2991;
-  /** Alias — main brand blue (same as 600) */
-  --color-primary-600: var(--color-primary-600);
+  /** Alias — main brand blue (same as 600 - Main) */
+  --color-primary-600: var(--color-primary-600-main);
 
   /* Figma-style aliases */
   --Primary-100: var(--color-primary-100);
@@ -83,4 +83,30 @@
    */
   --color-tooltip-panel-background: #02071b;
   --Color-Neutral-600: var(--color-tooltip-panel-background);
+}
+
+/**
+ * Toggle indicator — layout, motion, state colors (Figma 8096:162).
+ * Row must set [data-assemble-ds-toggle-row]; disabled: aria-disabled="true".
+ */
+:root {
+  --toggle-width: 35px;
+  --toggle-height: 20px;
+  --toggle-border-radius: 10px;
+  --toggle-thumb-size: 16px;
+  --toggle-thumb-inset: 2px;
+  --toggle-thumb-translate-x: 15px;
+  --toggle-transition-duration: 0.22s;
+  --toggle-transition-easing: cubic-bezier(0.22, 1, 0.36, 1);
+  --toggle-track-off: var(--color-secondary-400);
+  --toggle-track-off-hover: #9ba5b2;
+  --toggle-track-off-focus: var(--color-secondary-400);
+  --toggle-focus-ring-off: rgb(167 178 192 / 12%);
+  --toggle-track-off-disabled: var(--color-secondary-100);
+  --toggle-track-on: var(--color-primary-600);
+  --toggle-track-on-hover: #143dde;
+  --toggle-track-on-focus: var(--color-primary-600);
+  --toggle-focus-ring-on: rgb(11 65 255 / 12%);
+  --toggle-track-on-disabled: var(--color-primary-500);
+  --toggle-thumb-background: var(--color-neutral-100);
 }

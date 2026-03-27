@@ -1,0 +1,64 @@
+/**
+ * Pill toggle thumb (Figma 8096:162). Parent row uses [data-assemble-ds-toggle-row].
+ */
+
+.track {
+  position: relative;
+  flex-shrink: 0;
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  border-radius: var(--toggle-border-radius);
+  background: var(--toggle-track-off);
+  transition:
+    background var(--toggle-transition-duration) var(--toggle-transition-easing),
+    box-shadow var(--toggle-transition-duration) var(--toggle-transition-easing);
+}
+
+.track::after {
+  content: "";
+  position: absolute;
+  top: var(--toggle-thumb-inset);
+  left: var(--toggle-thumb-inset);
+  width: var(--toggle-thumb-size);
+  height: var(--toggle-thumb-size);
+  border-radius: 50%;
+  background: var(--toggle-thumb-background);
+  transition: transform var(--toggle-transition-duration)
+    var(--toggle-transition-easing);
+}
+
+.trackOn {
+  background: var(--toggle-track-on);
+}
+
+.trackOn::after {
+  transform: translateX(var(--toggle-thumb-translate-x));
+}
+
+/* Off × row interaction */
+:global([data-assemble-ds-toggle-row]:hover) .track:not(.trackOn) {
+  background: var(--toggle-track-off-hover);
+}
+
+:global([data-assemble-ds-toggle-row]:focus-visible) .track:not(.trackOn) {
+  background: var(--toggle-track-off-focus);
+  box-shadow: 0 0 0 3px var(--toggle-focus-ring-off);
+}
+
+:global([data-assemble-ds-toggle-row][aria-disabled="true"]) .track:not(.trackOn) {
+  background: var(--toggle-track-off-disabled);
+}
+
+/* On × row interaction */
+:global([data-assemble-ds-toggle-row]:hover) .track.trackOn {
+  background: var(--toggle-track-on-hover);
+}
+
+:global([data-assemble-ds-toggle-row]:focus-visible) .track.trackOn {
+  background: var(--toggle-track-on-focus);
+  box-shadow: 0 0 0 3px var(--toggle-focus-ring-on);
+}
+
+:global([data-assemble-ds-toggle-row][aria-disabled="true"]) .track.trackOn {
+  background: var(--toggle-track-on-disabled);
+}
