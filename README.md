@@ -58,7 +58,8 @@ Import tokens once in your app shell:
 |------|-------------|
 | [`tokens/color-palette.css`](./tokens/color-palette.css) | **Primary** (100–700), **Secondary** (100–700), **Neutral** (100–700 + list outline), **Additional** (blue light/dark, green, orange, red), semantic **`--color-error`**, tooltip panel **`--color-tooltip-panel-background`**, and a second **`:root`** block with **`--toggle-*`** (geometry, motion, state colors). |
 | [`src/Tooltip`](./src/Tooltip) | Default tooltip: dark panel, label + optional shortcut; **pointer** to the **right** and **slightly below** the cursor. |
-| [`src/ToggleIndicator`](./src/ToggleIndicator) | Pill switch **thumb/track** only (Figma **8096:162**). Parent control must spread **`toggleRowDataProps()`** and set **`aria-disabled`** when needed so hover / focus / disabled styles apply. |
+| [`src/ToggleIndicator`](./src/ToggleIndicator) | Pill switch **thumb/track** only. Parent control must spread **`toggleRowDataProps()`** and set **`aria-disabled`** when needed so hover / focus / disabled styles apply (Figma [8096:64](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/%E2%9A%92%EF%B8%8F-Assemble--Design-system?node-id=8096-64&m=dev) matrix). |
+| [`docs/TOGGLE.md`](./docs/TOGGLE.md) | **Full spec:** use cases, click targets, immediate apply, layout (`--toggle-label-gap` 8px), no toggle-level errors, disabled as “locked”. |
 
 ### Toggle — interaction states
 
@@ -67,7 +68,9 @@ Import tokens once in your app shell:
 | **Off** | Secondary/400 | `#9ba5b2` | Secondary/400 + ring `rgb(167 178 192 / 12%)` | Secondary/100 |
 | **On** | Primary/600 | `#143dde` | Primary/600 + ring `rgb(11 65 255 / 12%)` | Primary/500 |
 
-Layout: **35×20** px track, **16** px thumb, **15** px travel; **0.22s**, `cubic-bezier(0.22, 1, 0.36, 1)`.
+Layout: **35×20** px track, **16** px thumb, **15** px travel; **0.22s**, `cubic-bezier(0.22, 1, 0.36, 1)`. Label spacing: **`--toggle-label-gap`** (8px).
+
+**Product rules** (when to use a toggle, label hit-area, positioning, no “Save”, no toggle-level errors, disabled = locked): see **[docs/TOGGLE.md](./docs/TOGGLE.md)**.
 
 ```tsx
 import {

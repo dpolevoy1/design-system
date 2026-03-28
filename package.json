@@ -25,6 +25,7 @@
   "files": [
     "tokens",
     "src",
+    "docs",
     "README.md"
   ],
   "peerDependencies": {

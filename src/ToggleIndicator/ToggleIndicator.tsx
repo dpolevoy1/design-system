@@ -10,7 +10,8 @@ export type ToggleIndicatorProps = {
 
 /**
  * Data attribute the **parent control** (e.g. `menuitemcheckbox`) must set so
- * hover / focus / disabled track styles apply (Figma 8096:162).
+ * hover / focus / disabled track styles apply (Figma `8096:64` matrix).
+ * @see docs/TOGGLE.md
  */
 export const ASSEMBLE_DS_TOGGLE_ROW = "data-assemble-ds-toggle-row";
 

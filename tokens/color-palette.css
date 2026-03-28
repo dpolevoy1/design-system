@@ -86,10 +86,13 @@
 }
 
 /**
- * Toggle indicator — layout, motion, state colors (Figma 8096:162).
+ * Toggle / switch (Figma Component overview 8096:64; element variants 8096:163–184).
  * Row must set [data-assemble-ds-toggle-row]; disabled: aria-disabled="true".
+ * Full rules: docs/TOGGLE.md
  */
 :root {
+  /** Space between switch and label in horizontal layouts (Figma ~8px). */
+  --toggle-label-gap: 8px;
   --toggle-width: 35px;
   --toggle-height: 20px;
   --toggle-border-radius: 10px;
