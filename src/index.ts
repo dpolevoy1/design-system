@@ -11,3 +11,8 @@ export {
   type PrimaryButtonProps,
   type PrimaryButtonSize,
 } from "./PrimaryButton";
+export {
+  SecondaryButton,
+  type SecondaryButtonProps,
+  type SecondaryButtonSize,
+} from "./SecondaryButton";

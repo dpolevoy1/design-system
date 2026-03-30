@@ -28,6 +28,10 @@
     "./primary-button": {
       "types": "./src/PrimaryButton/index.ts",
       "default": "./src/PrimaryButton/index.ts"
+    },
+    "./secondary-button": {
+      "types": "./src/SecondaryButton/index.ts",
+      "default": "./src/SecondaryButton/index.ts"
     }
   },
   "files": [

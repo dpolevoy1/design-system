@@ -1,0 +1,112 @@
+/**
+ * Secondary / outline button — Figma 8249:312 (PowerPoint / Secondary).
+ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-secondary-gap);
+  margin: 0;
+  border: var(--button-secondary-border-width) solid
+    var(--button-secondary-border-default);
+  border-radius: var(--button-secondary-radius);
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  box-sizing: border-box;
+  vertical-align: middle;
+  color: var(--button-secondary-fg);
+  transition: var(--button-secondary-transition);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fillSolid {
+  background: var(--button-secondary-bg-solid);
+}
+
+.fillGradient {
+  background: var(--button-secondary-gradient);
+}
+
+.button:hover:not(:disabled) {
+  border-color: var(--button-secondary-border-hover);
+}
+
+.button:focus-visible:not(:disabled) {
+  border-color: var(--button-secondary-border-focus);
+  color: var(--button-secondary-fg-focus);
+  outline: 2px solid var(--color-primary-400-focus);
+  outline-offset: 2px;
+}
+
+.button:active:not(:disabled) {
+  border-color: var(--button-secondary-border-focus);
+  color: var(--button-secondary-fg-focus);
+}
+
+.button:disabled {
+  border-color: var(--button-secondary-border-disabled);
+  color: var(--button-secondary-fg-disabled);
+  cursor: not-allowed;
+}
+
+/* sm — 32px */
+.sizeSm.iconOnly {
+  padding: var(--button-secondary-pad-icon-sm);
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.sizeSm.textOnly,
+.sizeSm.iconText {
+  padding: var(--button-secondary-pad-y) var(--button-secondary-pad-x-sm);
+  min-height: 32px;
+}
+
+.sizeSm .label {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.18px;
+}
+
+/* md — 38px */
+.sizeMd.iconOnly {
+  padding: var(--button-secondary-pad-icon-md);
+  min-width: 38px;
+  min-height: 38px;
+}
+
+.sizeMd.textOnly,
+.sizeMd.iconText {
+  padding: var(--button-secondary-pad-y) var(--button-secondary-pad-x-md);
+  min-height: 38px;
+}
+
+.sizeMd .label {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.14px;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--button-secondary-icon);
+  height: var(--button-secondary-icon);
+  color: inherit;
+}
+
+.iconWrap > svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.label {
+  margin: 0;
+  color: inherit;
+  white-space: nowrap;
+}

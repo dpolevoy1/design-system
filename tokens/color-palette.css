@@ -136,3 +136,40 @@
   --button-primary-pad-x-md: 16px;
   --button-primary-pad-y: 8px;
 }
+
+/**
+ * Secondary / outline button — Figma `8249:312` (PowerPoint Secondary).
+ * Icon-only: solid Neutral 100 + border. Text / icon+text: subtle vertical gradient + border.
+ */
+:root {
+  --button-secondary-radius: var(--button-primary-radius);
+  --button-secondary-icon: var(--button-primary-icon);
+  --button-secondary-gap: var(--button-primary-gap);
+  --button-secondary-pad-icon-sm: var(--button-primary-pad-icon-sm);
+  --button-secondary-pad-icon-md: var(--button-primary-pad-icon-md);
+  --button-secondary-pad-x-sm: var(--button-primary-pad-x-sm);
+  --button-secondary-pad-x-md: var(--button-primary-pad-x-md);
+  --button-secondary-pad-y: var(--button-primary-pad-y);
+  --button-secondary-border-width: 1px;
+  --button-secondary-bg-solid: var(--color-neutral-100);
+  /**
+   * Figma: white → #fafafa @ 97.5% → white @ 98.828% (barely-there depth).
+   */
+  --button-secondary-gradient: linear-gradient(
+    to bottom,
+    var(--color-neutral-100) 0%,
+    #fafafa 97.5%,
+    var(--color-neutral-100) 98.828%
+  );
+  --button-secondary-border-default: var(--color-secondary-300);
+  --button-secondary-border-hover: var(--color-secondary-400);
+  --button-secondary-border-focus: var(--color-primary-600);
+  --button-secondary-border-disabled: var(--color-secondary-200);
+  --button-secondary-fg: var(--color-neutral-700);
+  --button-secondary-fg-focus: var(--color-primary-600);
+  --button-secondary-fg-disabled: var(--color-secondary-200);
+  --button-secondary-transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+}

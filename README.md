@@ -39,12 +39,13 @@ export default defineConfig({
 
 | Subpath | Contents |
 |---------|----------|
-| `@assemble/design-system` | `Tooltip`, `ToggleIndicator`, `Spinner`, `PrimaryButton`, … |
+| `@assemble/design-system` | `Tooltip`, `ToggleIndicator`, `Spinner`, `PrimaryButton`, `SecondaryButton`, … |
 | `@assemble/design-system/tooltip` | Tooltip only |
 | `@assemble/design-system/toggle-indicator` | Toggle only |
 | `@assemble/design-system/spinner` | Spinner only |
 | `@assemble/design-system/primary-button` | Primary CTA button only |
-| `@assemble/design-system/tokens/color-palette.css` | CSS variables: palette + `--toggle-*` + **`--button-primary-*`** |
+| `@assemble/design-system/secondary-button` | Secondary outline button only |
+| `@assemble/design-system/tokens/color-palette.css` | CSS variables: palette + `--toggle-*` + **`--button-primary-*`** + **`--button-secondary-*`** |
 
 Import tokens once in your app shell:
 
@@ -58,12 +59,13 @@ Import tokens once in your app shell:
 
 | Path | Description |
 |------|-------------|
-| [`tokens/color-palette.css`](./tokens/color-palette.css) | **Primary** (100–700), **Secondary** (100–700), **Neutral** (100–700 + list outline), **Additional**, semantic **`--color-error`**, tooltip panel, **`--toggle-*`**, and **`--button-primary-*`** (primary CTA from [Figma 8249:251](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-251)). |
+| [`tokens/color-palette.css`](./tokens/color-palette.css) | Full palette, **`--toggle-*`**, **`--button-primary-*`** ([8249:251](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-251)), **`--button-secondary-*`** ([8249:312](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-312)). |
 | [`src/Tooltip`](./src/Tooltip) | Default tooltip: dark panel, label + optional shortcut; **pointer** to the **right** and **slightly below** the cursor. |
 | [`src/ToggleIndicator`](./src/ToggleIndicator) | Pill switch **thumb/track** only. Parent control must spread **`toggleRowDataProps()`** and set **`aria-disabled`** when needed so hover / focus / disabled styles apply (Figma [8096:64](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/%E2%9A%92%EF%B8%8F-Assemble--Design-system?node-id=8096-64&m=dev) matrix). |
 | [`docs/TOGGLE.md`](./docs/TOGGLE.md) | **Full spec:** use cases, click targets, immediate apply, layout (`--toggle-label-gap` 8px), no toggle-level errors, disabled as “locked”. |
 | [`src/Spinner`](./src/Spinner) | **Line** indeterminate spinner (`0.9s` linear rotation). Variants: **neutral** (`--color-neutral-100`) and **primary** (`--color-primary-600`). Sizes **sm**–**xl** (12–24px). |
-| [`src/PrimaryButton`](./src/PrimaryButton) | **PowerPoint primary** button: **`sm`** (32px) / **`md`** (38px); icon-only, text-only, icon+text; default / hover / focus-visible / active / disabled ([Figma 8249:251](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-251)). |
+| [`src/PrimaryButton`](./src/PrimaryButton) | **PowerPoint primary** — filled CTA; **`sm`** / **`md`**; icon / text / both ([Figma 8249:251](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-251)). |
+| [`src/SecondaryButton`](./src/SecondaryButton) | **PowerPoint secondary** — 1px border, icon-only flat fill or text rows with gradient; same sizes/layout ([Figma 8249:312](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-312)). |
 
 ### Toggle — interaction states
 
@@ -121,6 +123,21 @@ import "@assemble/design-system/tokens/color-palette.css";
 <PrimaryButton size="md" icon={<MyIcon />}>
   Placeholder
 </PrimaryButton>
+```
+
+### Secondary button
+
+[Figma `8249:312`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-312) — border **Secondary 300** (hover **400**, focus/active **Primary 600**, disabled **200**). **Icon-only:** **Neutral 100** fill. **Text / icon+text:** subtle **white → #fafafa** gradient. Label/icon **Neutral 700**; **Primary 600** when focused or pressed; **Secondary 200** when disabled. Use icons that honor **`currentColor`**.
+
+```tsx
+import { SecondaryButton } from "@assemble/design-system";
+import "@assemble/design-system/tokens/color-palette.css";
+
+<SecondaryButton size="md" icon={<MyIcon />} aria-label="More" />
+<SecondaryButton size="sm">Placeholder</SecondaryButton>
+<SecondaryButton size="md" icon={<MyIcon />}>
+  Placeholder
+</SecondaryButton>
 ```
 
 ### Tooltip
