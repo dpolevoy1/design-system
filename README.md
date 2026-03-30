@@ -61,6 +61,7 @@ Import tokens once in your app shell:
 | [`src/Tooltip`](./src/Tooltip) | Default tooltip: dark panel, label + optional shortcut; **pointer** to the **right** and **slightly below** the cursor. |
 | [`src/ToggleIndicator`](./src/ToggleIndicator) | Pill switch **thumb/track** only. Parent control must spread **`toggleRowDataProps()`** and set **`aria-disabled`** when needed so hover / focus / disabled styles apply (Figma [8096:64](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/%E2%9A%92%EF%B8%8F-Assemble--Design-system?node-id=8096-64&m=dev) matrix). |
 | [`docs/TOGGLE.md`](./docs/TOGGLE.md) | **Full spec:** use cases, click targets, immediate apply, layout (`--toggle-label-gap` 8px), no toggle-level errors, disabled as “locked”. |
+| [`docs/gallery/`](./docs/gallery/) | **Static HTML gallery** — left nav, previews for palette, typography, Tooltip, Toggle, Spinner (serve from repo root; see below). |
 | [`src/Spinner`](./src/Spinner) | **Line** indeterminate spinner (`0.9s` linear rotation). Variants: **neutral** (`--color-neutral-100`) and **primary** (`--color-primary-600`). Sizes **sm**–**xl** (12–24px). |
 
 ### Toggle — interaction states
@@ -132,6 +133,17 @@ cd design-system
 npm install
 npx tsc --noEmit
 ```
+
+### Static component gallery (HTML)
+
+The folder [`docs/gallery/`](./docs/gallery/) is a **static documentation page** (sidebar + component previews). It loads the real `tokens/color-palette.css` via relative URL, so you must serve the **repository root** (not only `docs/gallery/`).
+
+```bash
+# from the design-system repo root
+python3 -m http.server 5175
+```
+
+Open **http://localhost:5175/docs/gallery/** — use a port other than your host app (e.g. SidebarMenu on 5174).
 
 ---
 
