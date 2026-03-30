@@ -24,6 +24,10 @@
     "./spinner": {
       "types": "./src/Spinner/index.ts",
       "default": "./src/Spinner/index.ts"
+    },
+    "./primary-button": {
+      "types": "./src/PrimaryButton/index.ts",
+      "default": "./src/PrimaryButton/index.ts"
     }
   },
   "files": [

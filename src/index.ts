@@ -6,3 +6,8 @@ export {
   type ToggleIndicatorProps,
 } from "./ToggleIndicator";
 export { Spinner, type SpinnerProps, type SpinnerSize } from "./Spinner";
+export {
+  PrimaryButton,
+  type PrimaryButtonProps,
+  type PrimaryButtonSize,
+} from "./PrimaryButton";

@@ -1,0 +1,105 @@
+/**
+ * Primary button — Figma node 8249:251 (PowerPoint / Primary).
+ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-primary-gap);
+  margin: 0;
+  border: none;
+  border-radius: var(--button-primary-radius);
+  background: var(--button-primary-bg);
+  color: var(--button-primary-fg);
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  transition: var(--button-primary-transition);
+  box-sizing: border-box;
+  vertical-align: middle;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--button-primary-bg-hover);
+}
+
+.button:focus-visible:not(:disabled) {
+  background: var(--button-primary-bg-focus);
+  outline: 2px solid var(--color-primary-400-focus);
+  outline-offset: 2px;
+}
+
+.button:active:not(:disabled) {
+  background: var(--button-primary-bg-active);
+}
+
+.button:disabled {
+  background: var(--button-primary-bg-disabled);
+  cursor: not-allowed;
+}
+
+.button:disabled .iconWrap,
+.button:disabled .label {
+  opacity: var(--button-primary-fg-disabled-opacity);
+}
+
+/* sm — 32px target height */
+.sizeSm.iconOnly {
+  padding: var(--button-primary-pad-icon-sm);
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.sizeSm.textOnly,
+.sizeSm.iconText {
+  padding: var(--button-primary-pad-y) var(--button-primary-pad-x-sm);
+  min-height: 32px;
+}
+
+.sizeSm .label {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.18px;
+}
+
+/* md — 38px target height */
+.sizeMd.iconOnly {
+  padding: var(--button-primary-pad-icon-md);
+  min-width: 38px;
+  min-height: 38px;
+}
+
+.sizeMd.textOnly,
+.sizeMd.iconText {
+  padding: var(--button-primary-pad-y) var(--button-primary-pad-x-md);
+  min-height: 38px;
+}
+
+.sizeMd .label {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.14px;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--button-primary-icon);
+  height: var(--button-primary-icon);
+}
+
+.iconWrap > svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.label {
+  margin: 0;
+  color: inherit;
+  white-space: nowrap;
+}

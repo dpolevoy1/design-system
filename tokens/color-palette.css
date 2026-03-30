@@ -113,3 +113,26 @@
   --toggle-track-on-disabled: var(--color-primary-500);
   --toggle-thumb-background: var(--color-neutral-100);
 }
+
+/**
+ * Primary CTA button — Figma `8249:251` (Components / Button / PowerPoint Primary).
+ * (PowerPoint primary: sm 32px / md 38px row heights; icon 16px; radius 6px).
+ */
+:root {
+  --button-primary-radius: 6px;
+  --button-primary-bg: var(--color-primary-600);
+  --button-primary-bg-hover: #1642eb;
+  --button-primary-bg-focus: #153ede;
+  --button-primary-bg-active: #153ede;
+  --button-primary-bg-disabled: var(--color-primary-500);
+  --button-primary-fg: var(--color-neutral-100);
+  --button-primary-fg-disabled-opacity: 0.72;
+  --button-primary-icon: 16px;
+  --button-primary-gap: 6px;
+  --button-primary-transition: background-color 0.15s ease;
+  --button-primary-pad-icon-sm: 8px;
+  --button-primary-pad-icon-md: 11px;
+  --button-primary-pad-x-sm: 12px;
+  --button-primary-pad-x-md: 16px;
+  --button-primary-pad-y: 8px;
+}
