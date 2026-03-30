@@ -5,3 +5,4 @@ export {
   toggleRowDataProps,
   type ToggleIndicatorProps,
 } from "./ToggleIndicator";
+export { Spinner, type SpinnerProps, type SpinnerSize } from "./Spinner";

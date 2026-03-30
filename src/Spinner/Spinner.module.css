@@ -1,0 +1,27 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.variantNeutral {
+  color: var(--color-neutral-100);
+}
+
+.variantPrimary {
+  color: var(--color-primary-600);
+}
+
+.spinner {
+  animation: assembleDsSpinnerSpin 0.9s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes assembleDsSpinnerSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

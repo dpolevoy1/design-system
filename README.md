@@ -39,9 +39,10 @@ export default defineConfig({
 
 | Subpath | Contents |
 |---------|----------|
-| `@assemble/design-system` | `Tooltip`, `ToggleIndicator`, `toggleRowDataProps`, … |
+| `@assemble/design-system` | `Tooltip`, `ToggleIndicator`, `Spinner`, … |
 | `@assemble/design-system/tooltip` | Tooltip only |
 | `@assemble/design-system/toggle-indicator` | Toggle only |
+| `@assemble/design-system/spinner` | Spinner only |
 | `@assemble/design-system/tokens/color-palette.css` | CSS variables: full color palette + toggle `--toggle-*` tokens |
 
 Import tokens once in your app shell:
@@ -60,6 +61,7 @@ Import tokens once in your app shell:
 | [`src/Tooltip`](./src/Tooltip) | Default tooltip: dark panel, label + optional shortcut; **pointer** to the **right** and **slightly below** the cursor. |
 | [`src/ToggleIndicator`](./src/ToggleIndicator) | Pill switch **thumb/track** only. Parent control must spread **`toggleRowDataProps()`** and set **`aria-disabled`** when needed so hover / focus / disabled styles apply (Figma [8096:64](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/%E2%9A%92%EF%B8%8F-Assemble--Design-system?node-id=8096-64&m=dev) matrix). |
 | [`docs/TOGGLE.md`](./docs/TOGGLE.md) | **Full spec:** use cases, click targets, immediate apply, layout (`--toggle-label-gap` 8px), no toggle-level errors, disabled as “locked”. |
+| [`src/Spinner`](./src/Spinner) | **Line** indeterminate spinner (`0.9s` linear rotation). Variants: **neutral** (`--color-neutral-100`) and **primary** (`--color-primary-600`). Sizes **sm**–**xl** (12–24px). |
 
 ### Toggle — interaction states
 
@@ -88,6 +90,20 @@ import {
   <span>Dark mode</span>
   <ToggleIndicator on={darkMode} aria-hidden />
 </button>
+```
+
+### Spinner
+
+Arc stroke uses `currentColor` from palette tokens. Default variant is **primary** (on light surfaces); use **neutral** on dark fills.
+
+```tsx
+import { Spinner } from "@assemble/design-system";
+
+import "@assemble/design-system/tokens/color-palette.css";
+
+<Spinner variant="primary" size="md" label="Loading workspaces" />
+
+<Spinner variant="neutral" size="md" aria-hidden />
 ```
 
 ### Tooltip

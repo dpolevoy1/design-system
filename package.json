@@ -20,6 +20,10 @@
     "./toggle-indicator": {
       "types": "./src/ToggleIndicator/index.ts",
       "default": "./src/ToggleIndicator/index.ts"
+    },
+    "./spinner": {
+      "types": "./src/Spinner/index.ts",
+      "default": "./src/Spinner/index.ts"
     }
   },
   "files": [
