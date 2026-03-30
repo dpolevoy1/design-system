@@ -40,11 +40,11 @@ export default defineConfig({
 | Subpath | Contents |
 |---------|----------|
 | `@assemble/design-system` | `Tooltip`, `ToggleIndicator`, `Spinner`, `PrimaryButton`, `SecondaryButton`, … |
-| `@assemble/design-system/tooltip` | Tooltip only |
-| `@assemble/design-system/toggle-indicator` | Toggle only |
-| `@assemble/design-system/spinner` | Spinner only |
-| `@assemble/design-system/primary-button` | Primary CTA button only |
-| `@assemble/design-system/secondary-button` | Secondary outline button only |
+| `@assemble/design-system/tooltip` | Tooltip |
+| `@assemble/design-system/toggle-indicator` | Toggle |
+| `@assemble/design-system/spinner` | Spinner |
+| `@assemble/design-system/primary-button` | Primary CTA button |
+| `@assemble/design-system/secondary-button` | Secondary CTA button |
 | `@assemble/design-system/tokens/color-palette.css` | CSS variables: palette + `--toggle-*` + **`--button-primary-*`** + **`--button-secondary-*`** |
 
 Import tokens once in your app shell:
