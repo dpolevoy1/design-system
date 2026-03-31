@@ -55,8 +55,8 @@ export default defineConfig({
 | `@assemble/design-system/spinner` | Spinner |
 | `@assemble/design-system/primary-button` | Primary CTA button |
 | `@assemble/design-system/secondary-button` | Secondary CTA button |
-| `@assemble/design-system/tertiary-button` | Tertiary / ghost button |
-| `@assemble/design-system/delete-button` | Delete / destructive button |
+| `@assemble/design-system/tertiary-button` | Tertiary CTA button / Ghost button |
+| `@assemble/design-system/delete-button` | Delete CTA button / Destructive button |
 | `@assemble/design-system/tokens/color-palette.css` | CSS variables: palette + `--toggle-*` + **`--button-primary-*`** + **`--button-secondary-*`** + **`--button-tertiary-*`** + **`--button-delete-*`** |
 
 Import tokens once in your app shell:
