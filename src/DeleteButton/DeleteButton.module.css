@@ -1,0 +1,115 @@
+/**
+ * Delete / destructive outline button — Figma `8813:125`.
+ * Mirrors secondary chrome (border + optional gradient row) with Additional Red accents.
+ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-delete-gap);
+  margin: 0;
+  border: var(--button-delete-border-width) solid var(--button-delete-border-default);
+  border-radius: var(--button-delete-radius);
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  box-sizing: border-box;
+  vertical-align: middle;
+  color: var(--button-delete-fg);
+  transition: var(--button-delete-transition);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.fillSolid {
+  background: var(--button-delete-bg-solid);
+}
+
+.fillGradient {
+  background: var(--button-delete-gradient);
+}
+
+.button:hover:not(:disabled) {
+  border-color: var(--button-delete-border-hover);
+  background: var(--button-delete-bg-hover);
+}
+
+.button:focus-visible:not(:disabled) {
+  border-color: var(--button-delete-border-focus);
+  color: var(--button-delete-fg-focus);
+  outline: 2px solid var(--button-delete-focus-ring);
+  outline-offset: 2px;
+}
+
+.button:active:not(:disabled) {
+  border-color: var(--button-delete-border-active);
+  color: var(--button-delete-fg-focus);
+  background: var(--button-delete-bg-active);
+}
+
+.button:disabled {
+  border-color: var(--button-delete-border-disabled);
+  color: var(--button-delete-fg-disabled);
+  background: var(--button-delete-bg-disabled);
+  cursor: not-allowed;
+}
+
+/* sm — 32px */
+.sizeSm.iconOnly {
+  padding: var(--button-delete-pad-icon-sm);
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.sizeSm.textOnly,
+.sizeSm.iconText {
+  padding: var(--button-delete-pad-y) var(--button-delete-pad-x-sm);
+  min-height: 32px;
+}
+
+.sizeSm .label {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.18px;
+}
+
+/* md — 38px */
+.sizeMd.iconOnly {
+  padding: var(--button-delete-pad-icon-md);
+  min-width: 38px;
+  min-height: 38px;
+}
+
+.sizeMd.textOnly,
+.sizeMd.iconText {
+  padding: var(--button-delete-pad-y) var(--button-delete-pad-x-md);
+  min-height: 38px;
+}
+
+.sizeMd .label {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.14px;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--button-delete-icon);
+  height: var(--button-delete-icon);
+  color: inherit;
+}
+
+.iconWrap > svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.label {
+  margin: 0;
+  color: inherit;
+  white-space: nowrap;
+}

@@ -1,6 +1,6 @@
 {
   "name": "@assemble/design-system",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Design tokens and React UI primitives for A.Team Assemble",
   "type": "module",
   "sideEffects": [
@@ -32,6 +32,14 @@
     "./secondary-button": {
       "types": "./src/SecondaryButton/index.ts",
       "default": "./src/SecondaryButton/index.ts"
+    },
+    "./tertiary-button": {
+      "types": "./src/TertiaryButton/index.ts",
+      "default": "./src/TertiaryButton/index.ts"
+    },
+    "./delete-button": {
+      "types": "./src/DeleteButton/index.ts",
+      "default": "./src/DeleteButton/index.ts"
     }
   },
   "files": [

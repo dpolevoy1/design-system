@@ -173,3 +173,69 @@
     color 0.15s ease,
     background 0.15s ease;
 }
+
+/**
+ * Tertiary / ghost button — Figma `8813:40`.
+ * No border; label uses Primary 600; hover/active use Primary 200 / 300 wash.
+ */
+:root {
+  --button-tertiary-radius: var(--button-primary-radius);
+  --button-tertiary-icon: var(--button-primary-icon);
+  --button-tertiary-gap: var(--button-primary-gap);
+  --button-tertiary-pad-icon-sm: var(--button-primary-pad-icon-sm);
+  --button-tertiary-pad-icon-md: var(--button-primary-pad-icon-md);
+  --button-tertiary-pad-x-sm: var(--button-primary-pad-x-sm);
+  --button-tertiary-pad-x-md: var(--button-primary-pad-x-md);
+  --button-tertiary-pad-y: var(--button-primary-pad-y);
+  --button-tertiary-bg: transparent;
+  --button-tertiary-bg-hover: var(--color-primary-200);
+  --button-tertiary-bg-focus: var(--color-primary-200);
+  --button-tertiary-bg-active: var(--color-primary-300-hover);
+  --button-tertiary-fg: var(--color-primary-600);
+  --button-tertiary-fg-hover: var(--color-primary-700);
+  --button-tertiary-fg-focus: var(--color-primary-600);
+  --button-tertiary-fg-active: var(--color-primary-700);
+  --button-tertiary-fg-disabled: var(--color-secondary-200);
+  --button-tertiary-transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+/**
+ * Delete / destructive outline — Figma `8813:125`.
+ * Same layout as Secondary; Additional Red border and label; light rose wash on press/hover.
+ */
+:root {
+  --button-delete-radius: var(--button-primary-radius);
+  --button-delete-icon: var(--button-primary-icon);
+  --button-delete-gap: var(--button-primary-gap);
+  --button-delete-pad-icon-sm: var(--button-primary-pad-icon-sm);
+  --button-delete-pad-icon-md: var(--button-primary-pad-icon-md);
+  --button-delete-pad-x-sm: var(--button-primary-pad-x-sm);
+  --button-delete-pad-x-md: var(--button-primary-pad-x-md);
+  --button-delete-pad-y: var(--button-primary-pad-y);
+  --button-delete-border-width: 1px;
+  --button-delete-bg-solid: var(--color-neutral-100);
+  --button-delete-gradient: linear-gradient(
+    to bottom,
+    var(--color-neutral-100) 0%,
+    #fff6f7 97.5%,
+    var(--color-neutral-100) 98.828%
+  );
+  --button-delete-border-default: #ff6b78;
+  --button-delete-border-hover: var(--color-additional-red);
+  --button-delete-border-focus: var(--color-additional-red);
+  --button-delete-border-active: #e63544;
+  --button-delete-border-disabled: var(--color-secondary-200);
+  --button-delete-fg: var(--color-additional-red);
+  --button-delete-fg-focus: #e02e3d;
+  --button-delete-fg-disabled: #f0b8bd;
+  --button-delete-focus-ring: rgb(255 59 75 / 35%);
+  --button-delete-bg-hover: rgb(255 59 75 / 0.08);
+  --button-delete-bg-active: rgb(255 59 75 / 0.14);
+  --button-delete-bg-disabled: var(--color-neutral-100);
+  --button-delete-transition:
+    border-color 0.15s ease,
+    color 0.15s ease,
+    background 0.15s ease;
+}

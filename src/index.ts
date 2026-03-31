@@ -16,3 +16,13 @@ export {
   type SecondaryButtonProps,
   type SecondaryButtonSize,
 } from "./SecondaryButton";
+export {
+  TertiaryButton,
+  type TertiaryButtonProps,
+  type TertiaryButtonSize,
+} from "./TertiaryButton";
+export {
+  DeleteButton,
+  type DeleteButtonProps,
+  type DeleteButtonSize,
+} from "./DeleteButton";

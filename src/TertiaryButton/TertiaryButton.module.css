@@ -1,0 +1,106 @@
+/**
+ * Tertiary / ghost button — Figma `8813:40`.
+ * Text-forward control: no border, transparent default fill, brand label color.
+ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--button-tertiary-gap);
+  margin: 0;
+  border: none;
+  border-radius: var(--button-tertiary-radius);
+  background: var(--button-tertiary-bg);
+  font-family: Inter, system-ui, sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  box-sizing: border-box;
+  vertical-align: middle;
+  color: var(--button-tertiary-fg);
+  transition: var(--button-tertiary-transition);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--button-tertiary-bg-hover);
+  color: var(--button-tertiary-fg-hover);
+}
+
+.button:focus-visible:not(:disabled) {
+  background: var(--button-tertiary-bg-focus);
+  color: var(--button-tertiary-fg-focus);
+  outline: 2px solid var(--color-primary-400-focus);
+  outline-offset: 2px;
+}
+
+.button:active:not(:disabled) {
+  background: var(--button-tertiary-bg-active);
+  color: var(--button-tertiary-fg-active);
+}
+
+.button:disabled {
+  background: transparent;
+  color: var(--button-tertiary-fg-disabled);
+  cursor: not-allowed;
+}
+
+/* sm — 32px */
+.sizeSm.iconOnly {
+  padding: var(--button-tertiary-pad-icon-sm);
+  min-width: 32px;
+  min-height: 32px;
+}
+
+.sizeSm.textOnly,
+.sizeSm.iconText {
+  padding: var(--button-tertiary-pad-y) var(--button-tertiary-pad-x-sm);
+  min-height: 32px;
+}
+
+.sizeSm .label {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.18px;
+}
+
+/* md — 38px */
+.sizeMd.iconOnly {
+  padding: var(--button-tertiary-pad-icon-md);
+  min-width: 38px;
+  min-height: 38px;
+}
+
+.sizeMd.textOnly,
+.sizeMd.iconText {
+  padding: var(--button-tertiary-pad-y) var(--button-tertiary-pad-x-md);
+  min-height: 38px;
+}
+
+.sizeMd .label {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.14px;
+}
+
+.iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--button-tertiary-icon);
+  height: var(--button-tertiary-icon);
+  color: inherit;
+}
+
+.iconWrap > svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.label {
+  margin: 0;
+  color: inherit;
+  white-space: nowrap;
+}
