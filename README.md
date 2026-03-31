@@ -17,8 +17,10 @@ Shared **design tokens** and **React primitives** for [A.Team Assemble](https://
 Pin a **full commit SHA** for reproducible builds (copy from [commits on `main`](https://github.com/dpolevoy1/design-system/commits/main)):
 
 ```json
-"@assemble/design-system": "github:dpolevoy1/design-system#<40-character-sha>"
+"@assemble/design-system": "github:dpolevoy1/design-system#bb669171a4af763ec46fea34c02001a16fc22864"
 ```
+
+That SHA matches the **`0.2.0`** release on `main`; replace it when you upgrade.
 
 To work on this package **inside a monorepo** next to a consumer app, point at a folder instead:
 
