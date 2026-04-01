@@ -1,6 +1,6 @@
 {
   "name": "@assemble/design-system",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Design tokens and React UI primitives for A.Team Assemble",
   "type": "module",
   "sideEffects": [
@@ -40,6 +40,10 @@
     "./delete-button": {
       "types": "./src/DeleteButton/index.ts",
       "default": "./src/DeleteButton/index.ts"
+    },
+    "./input": {
+      "types": "./src/Input/index.ts",
+      "default": "./src/Input/index.ts"
     }
   },
   "files": [

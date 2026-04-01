@@ -253,3 +253,60 @@
 :root {
   --button-group-gap: 6px;
 }
+
+/**
+ * Text input — Figma matrix `8835:688`, overview dimensions `8835:179` (§08).
+ * Base (`md`): height 38px, pad 7px 12px (fits 14/22 inside 1px border), radius 8px, inner gap 8px.
+ * Small (`sm`): height 32px, pad 7px 12px, 12/16 type, radius 6px.
+ */
+:root {
+  --input-label-gap: 6px;
+  --input-helper-gap: 4px;
+  --input-inner-gap: 8px;
+  --input-border-width: 1px;
+  --input-bg: var(--color-neutral-100);
+  --input-border-default: var(--color-secondary-300);
+  --input-border-hover: var(--color-secondary-400);
+  --input-border-focus: var(--color-primary-600);
+  --input-border-disabled: var(--color-secondary-200);
+  --input-shadow-default: 0 1px 2px rgb(0 0 0 / 5%);
+  --input-shadow-hover: 0 1px 4px rgb(0 0 0 / 8%);
+  --input-shadow-focus: 0 0 0 3px rgb(23 69 247 / 12%);
+  --input-placeholder: var(--color-neutral-600);
+  --input-placeholder-focus: var(--color-neutral-500);
+  --input-value: var(--color-neutral-700);
+  --input-value-disabled: var(--color-secondary-200);
+  --input-success-border: var(--color-additional-green);
+  --input-success-shadow: var(--input-shadow-default);
+  --input-success-shadow-focus: 0 0 0 3px rgb(90 192 32 / 12%);
+  --input-warning-border: var(--color-additional-orange);
+  --input-warning-shadow: 0 1px 2px rgb(255 122 0 / 5%);
+  --input-warning-shadow-focus: 0 0 0 3px rgb(255 122 0 / 12%);
+  --input-error-border: var(--color-additional-red);
+  --input-error-shadow: 0 1px 2px rgb(255 59 75 / 5%);
+  --input-error-shadow-focus: 0 0 0 3px rgb(255 59 75 / 12%);
+  --input-helper-default: var(--color-secondary-500);
+  --input-helper-success: var(--color-additional-green);
+  --input-helper-warning: var(--color-additional-orange);
+  --input-helper-error: var(--color-additional-red);
+  --input-label-color: var(--color-neutral-700);
+  --input-transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  --input-height-md: 38px;
+  --input-height-sm: 32px;
+  --input-pad-x: 12px;
+  --input-pad-y-md: 7px;
+  --input-pad-y-sm: 7px;
+  --input-radius-md: 8px;
+  --input-radius-sm: 6px;
+  --input-font-md-size: 14px;
+  --input-font-md-line: 22px;
+  --input-font-md-tracking: 0.14px;
+  --input-font-sm-size: 12px;
+  --input-font-sm-line: 16px;
+  --input-font-sm-tracking: 0.18px;
+  --input-helper-font-size: 12px;
+  --input-helper-line: 16px;
+  --input-helper-tracking: 0.18px;
+}

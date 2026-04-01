@@ -1,0 +1,205 @@
+/**
+ * Text field — Figma `8835:688` states, `8835:179` layout (label / helper gaps).
+ */
+
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  max-width: 100%;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.label {
+  margin: 0 0 var(--input-label-gap);
+  padding: 0;
+  font-size: var(--input-helper-font-size);
+  line-height: var(--input-helper-line);
+  letter-spacing: var(--input-helper-tracking);
+  font-weight: 400;
+  color: var(--input-label-color);
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  gap: var(--input-inner-gap);
+  width: 100%;
+  margin: 0;
+  padding: var(--input-pad-y-md) var(--input-pad-x);
+  border: var(--input-border-width) solid var(--input-border-default);
+  border-radius: var(--input-radius-md);
+  background: var(--input-bg);
+  box-shadow: var(--input-shadow-default);
+  transition: var(--input-transition);
+}
+
+.sizeMd .field {
+  min-height: var(--input-height-md);
+  padding-top: var(--input-pad-y-md);
+  padding-bottom: var(--input-pad-y-md);
+  border-radius: var(--input-radius-md);
+}
+
+.sizeSm .field {
+  min-height: var(--input-height-sm);
+  padding-top: var(--input-pad-y-sm);
+  padding-bottom: var(--input-pad-y-sm);
+  border-radius: var(--input-radius-sm);
+}
+
+.field.default:hover:not(.disabled):not(:focus-within) {
+  border-color: var(--input-border-hover);
+  box-shadow: var(--input-shadow-hover);
+}
+
+.field.success:hover:not(.disabled):not(:focus-within) {
+  border-color: var(--input-success-border);
+  box-shadow: var(--input-success-shadow);
+}
+
+.field.warning:hover:not(.disabled):not(:focus-within) {
+  border-color: var(--input-warning-border);
+  box-shadow: var(--input-warning-shadow);
+}
+
+.field.error:hover:not(.disabled):not(:focus-within) {
+  border-color: var(--input-error-border);
+  box-shadow: var(--input-error-shadow);
+}
+
+.field:focus-within:not(.disabled) {
+  outline: none;
+}
+
+/* Default branch: focus ring color follows validation */
+.field.default:focus-within:not(.disabled) {
+  border-color: var(--input-border-focus);
+  box-shadow: var(--input-shadow-focus);
+}
+
+.field.success:focus-within:not(.disabled) {
+  border-color: var(--input-success-border);
+  box-shadow: var(--input-success-shadow-focus);
+}
+
+.field.success:not(:focus-within):not(.disabled) {
+  border-color: var(--input-success-border);
+  box-shadow: var(--input-success-shadow);
+}
+
+.field.warning:focus-within:not(.disabled) {
+  border-color: var(--input-warning-border);
+  box-shadow: var(--input-warning-shadow-focus);
+}
+
+.field.warning:not(:focus-within):not(.disabled) {
+  border-color: var(--input-warning-border);
+  box-shadow: var(--input-warning-shadow);
+}
+
+.field.error:focus-within:not(.disabled) {
+  border-color: var(--input-error-border);
+  box-shadow: var(--input-error-shadow-focus);
+}
+
+.field.error:not(:focus-within):not(.disabled) {
+  border-color: var(--input-error-border);
+  box-shadow: var(--input-error-shadow);
+}
+
+.field.disabled {
+  border-color: var(--input-border-disabled);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.field.default:hover.disabled,
+.field.success:hover.disabled,
+.field.warning:hover.disabled,
+.field.error:hover.disabled {
+  border-color: var(--input-border-disabled);
+  box-shadow: none;
+}
+
+.input {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--input-value);
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}
+
+.sizeMd .input {
+  font-size: var(--input-font-md-size);
+  line-height: var(--input-font-md-line);
+  letter-spacing: var(--input-font-md-tracking);
+}
+
+.sizeSm .input {
+  font-size: var(--input-font-sm-size);
+  line-height: var(--input-font-sm-line);
+  letter-spacing: var(--input-font-sm-tracking);
+}
+
+.input::placeholder {
+  color: var(--input-placeholder);
+  opacity: 1;
+}
+
+.input:focus::placeholder {
+  color: var(--input-placeholder-focus);
+}
+
+.input:disabled {
+  color: var(--input-value-disabled);
+  cursor: not-allowed;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.adornment {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secondary-500);
+}
+
+.adornment svg {
+  display: block;
+}
+
+.helper {
+  margin: var(--input-helper-gap) 0 0;
+  padding: 0;
+  font-size: var(--input-helper-font-size);
+  line-height: var(--input-helper-line);
+  letter-spacing: var(--input-helper-tracking);
+  font-weight: 400;
+}
+
+.helperDefault {
+  color: var(--input-helper-default);
+}
+
+.helperSuccess {
+  color: var(--input-helper-success);
+}
+
+.helperWarning {
+  color: var(--input-helper-warning);
+}
+
+.helperError {
+  color: var(--input-helper-error);
+}
