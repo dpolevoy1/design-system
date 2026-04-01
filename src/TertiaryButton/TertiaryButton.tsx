@@ -17,7 +17,8 @@ export type TertiaryButtonProps = {
 /**
  * Tertiary / ghost button from
  * [Figma 8813:40](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-40).
- * Import `tokens/color-palette.css` for `--button-tertiary-*`.
+ * No border; **Secondary 600** copy, **700** on hover/focus wash (**Primary 100** / **200**).
+ * Rules: **docs/BUTTONS.md** (`8249:59`).
  */
 export function TertiaryButton({
   size = "md",

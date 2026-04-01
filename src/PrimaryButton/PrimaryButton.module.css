@@ -1,5 +1,5 @@
 /**
- * Primary button — Figma node 8249:251 (PowerPoint / Primary).
+ * Primary button — Figma `8249:251` (Components / Button / Primary).
  */
 
 .button {
@@ -9,8 +9,8 @@
   gap: var(--button-primary-gap);
   margin: 0;
   border: none;
-  border-radius: var(--button-primary-radius);
-  background: var(--button-primary-bg);
+  background: var(--button-primary-fill);
+  background-origin: border-box;
   color: var(--button-primary-fg);
   font-family: Inter, system-ui, sans-serif;
   font-weight: 400;
@@ -21,12 +21,20 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+.sizeSm {
+  border-radius: var(--button-primary-radius-sm);
+}
+
+.sizeMd {
+  border-radius: var(--button-primary-radius-md);
+}
+
 .button:hover:not(:disabled) {
   background: var(--button-primary-bg-hover);
 }
 
 .button:focus-visible:not(:disabled) {
-  background: var(--button-primary-bg-focus);
+  background: var(--button-primary-bg-active);
   outline: 2px solid var(--color-primary-400-focus);
   outline-offset: 2px;
 }
@@ -45,7 +53,6 @@
   opacity: var(--button-primary-fg-disabled-opacity);
 }
 
-/* sm — 32px target height */
 .sizeSm.iconOnly {
   padding: var(--button-primary-pad-icon-sm);
   min-width: 32px;
@@ -64,7 +71,6 @@
   letter-spacing: 0.18px;
 }
 
-/* md — 38px target height */
 .sizeMd.iconOnly {
   padding: var(--button-primary-pad-icon-md);
   min-width: 38px;
@@ -75,6 +81,7 @@
 .sizeMd.iconText {
   padding: var(--button-primary-pad-y) var(--button-primary-pad-x-md);
   min-height: 38px;
+  min-width: var(--button-primary-min-width-md);
 }
 
 .sizeMd .label {

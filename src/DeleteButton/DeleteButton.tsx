@@ -15,9 +15,9 @@ export type DeleteButtonProps = {
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children">;
 
 /**
- * Delete / destructive outline button from
+ * Delete / destructive **filled** button from
  * [Figma 8813:125](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-125).
- * Import `tokens/color-palette.css` for `--button-delete-*`.
+ * **Additional red** surface, white label; use for irreversible actions. See **docs/BUTTONS.md**.
  */
 export function DeleteButton({
   size = "md",
@@ -33,13 +33,12 @@ export function DeleteButton({
   const hasIcon = icon != null;
   const mode = hasIcon && hasText ? "iconText" : hasIcon ? "iconOnly" : "textOnly";
   const sizeClass = size === "sm" ? styles.sizeSm : styles.sizeMd;
-  const fillClass = mode === "iconOnly" ? styles.fillSolid : styles.fillGradient;
 
   return (
     <button
       type={type}
       disabled={disabled}
-      className={`${styles.button} ${fillClass} ${sizeClass} ${styles[mode]} ${className}`.trim()}
+      className={`${styles.button} ${sizeClass} ${styles[mode]} ${className}`.trim()}
       {...rest}
     >
       {hasIcon ? (

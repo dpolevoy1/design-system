@@ -15,13 +15,10 @@ export type SecondaryButtonProps = {
 } & Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children">;
 
 /**
- * Secondary / PowerPoint outline button from
+ * Secondary outline from
  * [Figma 8249:312](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-312).
- * Import `tokens/color-palette.css` for `--button-secondary-*`.
- *
- * - **Icon-only** — flat **Neutral 100** fill, **Secondary 300** border (hover **400**, focus **Primary 600**).
- * - **Text / icon+text** — light **gradient** (white ↔ #fafafa) with the same border rules; label **Neutral 700**,
- *   **Primary 600** when focused/active, **Secondary 200** when disabled.
+ * Flat **Neutral 100** surface, subtle shadows; hover **Neutral 200**; focus **Primary 600** border (small size
+ * adds **Primary 100** wash). See **docs/BUTTONS.md** for product rules (`8249:59`).
  */
 export function SecondaryButton({
   size = "md",
@@ -37,13 +34,12 @@ export function SecondaryButton({
   const hasIcon = icon != null;
   const mode = hasIcon && hasText ? "iconText" : hasIcon ? "iconOnly" : "textOnly";
   const sizeClass = size === "sm" ? styles.sizeSm : styles.sizeMd;
-  const fillClass = mode === "iconOnly" ? styles.fillSolid : styles.fillGradient;
 
   return (
     <button
       type={type}
       disabled={disabled}
-      className={`${styles.button} ${fillClass} ${sizeClass} ${styles[mode]} ${className}`.trim()}
+      className={`${styles.button} ${sizeClass} ${styles[mode]} ${className}`.trim()}
       {...rest}
     >
       {hasIcon ? (

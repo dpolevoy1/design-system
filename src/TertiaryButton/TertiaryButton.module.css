@@ -1,6 +1,5 @@
 /**
- * Tertiary / ghost button — Figma `8813:40`.
- * Text-forward control: no border, transparent default fill, brand label color.
+ * Tertiary / ghost — Figma `8813:40`.
  */
 
 .button {
@@ -10,7 +9,6 @@
   gap: var(--button-tertiary-gap);
   margin: 0;
   border: none;
-  border-radius: var(--button-tertiary-radius);
   background: var(--button-tertiary-bg);
   font-family: Inter, system-ui, sans-serif;
   font-weight: 400;
@@ -22,21 +20,29 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+.sizeSm {
+  border-radius: var(--button-tertiary-radius-sm);
+}
+
+.sizeMd {
+  border-radius: var(--button-tertiary-radius-md);
+}
+
 .button:hover:not(:disabled) {
   background: var(--button-tertiary-bg-hover);
-  color: var(--button-tertiary-fg-hover);
+  color: var(--button-tertiary-fg-emphasis);
 }
 
 .button:focus-visible:not(:disabled) {
   background: var(--button-tertiary-bg-focus);
-  color: var(--button-tertiary-fg-focus);
+  color: var(--button-tertiary-fg-emphasis);
   outline: 2px solid var(--color-primary-400-focus);
   outline-offset: 2px;
 }
 
 .button:active:not(:disabled) {
   background: var(--button-tertiary-bg-active);
-  color: var(--button-tertiary-fg-active);
+  color: var(--button-tertiary-fg-emphasis);
 }
 
 .button:disabled {
@@ -45,7 +51,6 @@
   cursor: not-allowed;
 }
 
-/* sm — 32px */
 .sizeSm.iconOnly {
   padding: var(--button-tertiary-pad-icon-sm);
   min-width: 32px;
@@ -64,7 +69,6 @@
   letter-spacing: 0.18px;
 }
 
-/* md — 38px */
 .sizeMd.iconOnly {
   padding: var(--button-tertiary-pad-icon-md);
   min-width: 38px;
@@ -75,6 +79,7 @@
 .sizeMd.iconText {
   padding: var(--button-tertiary-pad-y) var(--button-tertiary-pad-x-md);
   min-height: 38px;
+  min-width: var(--button-tertiary-min-width-md);
 }
 
 .sizeMd .label {

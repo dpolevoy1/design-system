@@ -57,7 +57,7 @@ export default defineConfig({
 | `@assemble/design-system/secondary-button` | Secondary CTA button |
 | `@assemble/design-system/tertiary-button` | Tertiary CTA button / Ghost button |
 | `@assemble/design-system/delete-button` | Delete CTA button / Destructive button |
-| `@assemble/design-system/tokens/color-palette.css` | CSS variables: palette + `--toggle-*` + **`--button-primary-*`** + **`--button-secondary-*`** + **`--button-tertiary-*`** + **`--button-delete-*`** |
+| `@assemble/design-system/tokens/color-palette.css` | Palette + `--toggle-*` + **`--button-*`** (primary, secondary, tertiary, delete, **`--button-group-gap`**) |
 
 Import tokens once in your app shell:
 
@@ -67,14 +67,14 @@ Import tokens once in your app shell:
 
 ### Buttons
 
-All four variants share **`sm`** (32px row) and **`md`** (38px row), **16px** icon slot, **6px** gap, and **6px** corner radius. Import **`color-palette.css`** for `--button-*` tokens.
+Shared layout: **`sm`** / **`md`**, **16px** icon, **6px** icon–label gap, **`md` min-width 80px**, radii **8px** (`md`) / **6px** (`sm`). **Product rules** (copy, spacing, ellipsis): **[`docs/BUTTONS.md`](./docs/BUTTONS.md)** · Figma overview [**8249:59**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-59).
 
-| Variant | Component | Package subpath | Figma |
-|---------|-----------|-----------------|-------|
-| Primary | `PrimaryButton` | `@assemble/design-system/primary-button` | [8249:251](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-251) |
-| Secondary | `SecondaryButton` | `@assemble/design-system/secondary-button` | [8249:312](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-312) |
-| Tertiary | `TertiaryButton` | `@assemble/design-system/tertiary-button` | [8813:40](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-40) |
-| Delete | `DeleteButton` | `@assemble/design-system/delete-button` | [8813:125](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-125) |
+| Variant | Component | Figma node |
+|---------|-----------|------------|
+| Primary | `PrimaryButton` | [8249:251](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-251) |
+| Secondary | `SecondaryButton` | [8249:312](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-312) |
+| Tertiary | `TertiaryButton` | [8813:40](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-40) |
+| Delete | `DeleteButton` | [8813:125](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-125) |
 
 ---
 
@@ -82,15 +82,16 @@ All four variants share **`sm`** (32px row) and **`md`** (38px row), **16px** ic
 
 | Path | Description |
 |------|-------------|
-| [`tokens/color-palette.css`](./tokens/color-palette.css) | Full palette, **`--toggle-*`**, **`--button-primary-*`** ([8249:251](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-251)), **`--button-secondary-*`** ([8249:312](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-312)), **`--button-tertiary-*`** ([8813:40](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-40)), **`--button-delete-*`** ([8813:125](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-125)). |
+| [`tokens/color-palette.css`](./tokens/color-palette.css) | Full palette, **`--toggle-*`**, all **`--button-*`** + **`--button-group-gap`** (Figma button matrix + [8249:59](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-59)). |
 | [`src/Tooltip`](./src/Tooltip) | Default tooltip: dark panel, label + optional shortcut; **pointer** to the **right** and **slightly below** the cursor. |
 | [`src/ToggleIndicator`](./src/ToggleIndicator) | Pill switch **thumb/track** only. Parent control must spread **`toggleRowDataProps()`** and set **`aria-disabled`** when needed so hover / focus / disabled styles apply (Figma [8096:64](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/%E2%9A%92%EF%B8%8F-Assemble--Design-system?node-id=8096-64&m=dev) matrix). |
 | [`docs/TOGGLE.md`](./docs/TOGGLE.md) | **Full spec:** use cases, click targets, immediate apply, layout (`--toggle-label-gap` 8px), no toggle-level errors, disabled as “locked”. |
+| [`docs/BUTTONS.md`](./docs/BUTTONS.md) | **Button usage** from Figma [**8249:59**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-59): labels, icons, dimensions, group gap. |
 | [`src/Spinner`](./src/Spinner) | **Line** indeterminate spinner (`0.9s` linear rotation). Variants: **neutral** (`--color-neutral-100`) and **primary** (`--color-primary-600`). Sizes **sm**–**xl** (12–24px). |
 | [`src/PrimaryButton`](./src/PrimaryButton) | **PowerPoint primary** — filled CTA; **`sm`** / **`md`**; icon / text / both ([Figma 8249:251](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-251)). |
-| [`src/SecondaryButton`](./src/SecondaryButton) | **PowerPoint secondary** — 1px border, icon-only flat fill or text rows with gradient; same sizes/layout ([Figma 8249:312](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-312)). |
-| [`src/TertiaryButton`](./src/TertiaryButton) | **Tertiary / ghost** — no border, Primary 600 label, light Primary wash on hover ([Figma 8813:40](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-40)). |
-| [`src/DeleteButton`](./src/DeleteButton) | **Delete / destructive** — red outline and label; same layout as secondary ([Figma 8813:125](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-125)). |
+| [`src/SecondaryButton`](./src/SecondaryButton) | **Secondary** — bordered, flat surface, elevation shadows; focus ring ([8249:312](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-312)). |
+| [`src/TertiaryButton`](./src/TertiaryButton) | **Tertiary / ghost** — no border; **Secondary 600/700** text; **Primary 100/200** hover & focus wash ([8813:40](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-40)). |
+| [`src/DeleteButton`](./src/DeleteButton) | **Delete** — **Additional red** filled surface, white label, overlay states ([8813:125](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-125)). |
 
 ### Toggle — interaction states
 
@@ -137,7 +138,7 @@ import "@assemble/design-system/tokens/color-palette.css";
 
 ### Primary button
 
-[Figma `8249:251`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-251) — fill **`#1745f7`**, hover **`#1642eb`**, focus/active **`#153ede`**, disabled **Primary 500** with muted label/icon. Radius **6px**, icon slot **16px**, gap **6px**. Typography: **sm** text 12/16 (0.18px tracking), **md** 14/22 (0.14px).
+[Figma `8249:251`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-251) — **Primary 600** fill; hover/focus/active use **5% / 10% black overlays** on that fill; disabled **Primary 500**. Radius **`md` 8px** / **`sm` 6px**.
 
 ```tsx
 import { PrimaryButton } from "@assemble/design-system";
@@ -152,7 +153,7 @@ import "@assemble/design-system/tokens/color-palette.css";
 
 ### Secondary button
 
-[Figma `8249:312`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-312) — border **Secondary 300** (hover **400**, focus/active **Primary 600**, disabled **200**). **Icon-only:** **Neutral 100** fill. **Text / icon+text:** subtle **white → #fafafa** gradient. Label/icon **Neutral 700**; **Primary 600** when focused or pressed; **Secondary 200** when disabled. Use icons that honor **`currentColor`**.
+[Figma `8249:312`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-312) — **Neutral 100** surface, **Secondary 300** border, light shadows; hover **Neutral 200**; focus **Primary 600** border + tinted shadow; **sm** focus adds **Primary 100** fill wash.
 
 ```tsx
 import { SecondaryButton } from "@assemble/design-system";
@@ -167,7 +168,7 @@ import "@assemble/design-system/tokens/color-palette.css";
 
 ### Tertiary button
 
-[Figma `8813:40`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-40) — transparent default fill, **Primary 600** label, **Primary 200** hover wash, **Primary 300 (hover token)** when pressed. Same **`sm`** / **`md`**, icon slot, gap, radius as primary.
+[Figma `8813:40`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-40) — transparent by default; **Secondary 600** label → **700** on hover/focus; **Primary 100** / **200** background wash.
 
 ```tsx
 import { TertiaryButton } from "@assemble/design-system";
@@ -179,7 +180,7 @@ import "@assemble/design-system/tokens/color-palette.css";
 
 ### Delete button
 
-[Figma `8813:125`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-125) — **Additional Red** border and label; icon-only uses **Neutral 100** fill like secondary; text rows use a subtle rose-tinted gradient. Hover/active add a light red wash.
+[Figma `8813:125`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8813-125) — **filled Additional red** (`#ff3b4b`), **white** label; hover / focus / disabled use semi-transparent overlays on the fill.
 
 ```tsx
 import { DeleteButton } from "@assemble/design-system";
@@ -222,7 +223,7 @@ npx tsc --noEmit
 
 **`0.x`** — tokens and components evolve with the Assemble product; breaking changes are possible until **`1.0`**. Prefer **pinning a git SHA** in consuming apps.
 
-**`0.2.0`** — adds **`TertiaryButton`** and **`DeleteButton`**, with **`--button-tertiary-*`** and **`--button-delete-*`** tokens in `color-palette.css`.
+**`0.2.x`** — four button variants + **`docs/BUTTONS.md`**; tokens track Figma **8249:251**, **8249:312**, **8813:40**, **8813:125**, overview **8249:59**.
 
 ## License
 

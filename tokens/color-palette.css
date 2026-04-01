@@ -115,21 +115,32 @@
 }
 
 /**
- * Primary CTA button — Figma `8249:251` (Components / Button / PowerPoint Primary).
- * (PowerPoint primary: sm 32px / md 38px row heights; icon 16px; radius 6px).
+ * Primary CTA — Figma `8249:251`. Hover/focus darken via black overlays on Primary 600.
+ * Overview `8249:59`: base radius **8px** / small **6px**, gap **6px**, `min-width` **80px** (md).
  */
 :root {
-  --button-primary-radius: 6px;
-  --button-primary-bg: var(--color-primary-600);
-  --button-primary-bg-hover: #1642eb;
-  --button-primary-bg-focus: #153ede;
-  --button-primary-bg-active: #153ede;
+  --button-primary-radius-sm: 6px;
+  --button-primary-radius-md: 8px;
+  --button-primary-fill: var(--color-primary-600);
+  --button-primary-overlay-hover: rgb(0 0 0 / 5%);
+  --button-primary-overlay-active: rgb(0 0 0 / 10%);
+  --button-primary-bg-hover: linear-gradient(
+      var(--button-primary-overlay-hover),
+      var(--button-primary-overlay-hover)
+    ),
+    linear-gradient(var(--button-primary-fill), var(--button-primary-fill));
+  --button-primary-bg-active: linear-gradient(
+      var(--button-primary-overlay-active),
+      var(--button-primary-overlay-active)
+    ),
+    linear-gradient(var(--button-primary-fill), var(--button-primary-fill));
   --button-primary-bg-disabled: var(--color-primary-500);
   --button-primary-fg: var(--color-neutral-100);
   --button-primary-fg-disabled-opacity: 0.72;
   --button-primary-icon: 16px;
   --button-primary-gap: 6px;
-  --button-primary-transition: background-color 0.15s ease;
+  --button-primary-min-width-md: 80px;
+  --button-primary-transition: background 0.15s ease;
   --button-primary-pad-icon-sm: 8px;
   --button-primary-pad-icon-md: 11px;
   --button-primary-pad-x-sm: 12px;
@@ -138,31 +149,30 @@
 }
 
 /**
- * Secondary / outline button — Figma `8249:312` (PowerPoint Secondary).
- * Icon-only: solid Neutral 100 + border. Text / icon+text: subtle vertical gradient + border.
+ * Secondary outline — Figma `8249:312`. Flat fills + elevation; focus uses Primary 100 tint on **sm**.
  */
 :root {
-  --button-secondary-radius: var(--button-primary-radius);
-  --button-secondary-icon: var(--button-primary-icon);
-  --button-secondary-gap: var(--button-primary-gap);
-  --button-secondary-pad-icon-sm: var(--button-primary-pad-icon-sm);
-  --button-secondary-pad-icon-md: var(--button-primary-pad-icon-md);
-  --button-secondary-pad-x-sm: var(--button-primary-pad-x-sm);
-  --button-secondary-pad-x-md: var(--button-primary-pad-x-md);
-  --button-secondary-pad-y: var(--button-primary-pad-y);
+  --button-secondary-radius-sm: 6px;
+  --button-secondary-radius-md: 8px;
+  --button-secondary-icon: 16px;
+  --button-secondary-gap: 6px;
+  --button-secondary-pad-icon-sm: 8px;
+  --button-secondary-pad-icon-md: 11px;
+  --button-secondary-pad-x-sm: 12px;
+  --button-secondary-pad-x-md: 16px;
+  --button-secondary-pad-y: 8px;
+  --button-secondary-min-width-md: 80px;
   --button-secondary-border-width: 1px;
-  --button-secondary-bg-solid: var(--color-neutral-100);
-  /**
-   * Figma: white → #fafafa @ 97.5% → white @ 98.828% (barely-there depth).
-   */
-  --button-secondary-gradient: linear-gradient(
-    to bottom,
-    var(--color-neutral-100) 0%,
-    #fafafa 97.5%,
-    var(--color-neutral-100) 98.828%
-  );
+  --button-secondary-bg: var(--color-neutral-100);
+  --button-secondary-bg-hover: var(--color-neutral-200);
+  --button-secondary-bg-focus-sm: var(--color-primary-100);
+  --button-secondary-bg-focus-md: var(--color-neutral-100);
+  --button-secondary-shadow-default: 0 1px 2px rgb(0 0 0 / 5%);
+  --button-secondary-shadow-hover: 0 1px 4px rgb(0 0 0 / 8%);
+  --button-secondary-shadow-focus-md: 0 1px 2px rgb(23 69 247 / 8%);
+  --button-secondary-shadow-focus-sm: 0 1px 1px rgb(23 69 247 / 8%);
   --button-secondary-border-default: var(--color-secondary-300);
-  --button-secondary-border-hover: var(--color-secondary-400);
+  --button-secondary-border-hover: var(--color-secondary-300);
   --button-secondary-border-focus: var(--color-primary-600);
   --button-secondary-border-disabled: var(--color-secondary-200);
   --button-secondary-fg: var(--color-neutral-700);
@@ -171,71 +181,75 @@
   --button-secondary-transition:
     border-color 0.15s ease,
     color 0.15s ease,
-    background 0.15s ease;
+    background 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 /**
- * Tertiary / ghost button — Figma `8813:40`.
- * No border; label uses Primary 600; hover/active use Primary 200 / 300 wash.
+ * Tertiary / ghost — Figma `8813:40`. No border; **Secondary 600** label, **700** on hover/focus wash.
  */
 :root {
-  --button-tertiary-radius: var(--button-primary-radius);
-  --button-tertiary-icon: var(--button-primary-icon);
-  --button-tertiary-gap: var(--button-primary-gap);
-  --button-tertiary-pad-icon-sm: var(--button-primary-pad-icon-sm);
-  --button-tertiary-pad-icon-md: var(--button-primary-pad-icon-md);
-  --button-tertiary-pad-x-sm: var(--button-primary-pad-x-sm);
-  --button-tertiary-pad-x-md: var(--button-primary-pad-x-md);
-  --button-tertiary-pad-y: var(--button-primary-pad-y);
+  --button-tertiary-radius-sm: 6px;
+  --button-tertiary-radius-md: 8px;
+  --button-tertiary-icon: 16px;
+  --button-tertiary-gap: 6px;
+  --button-tertiary-pad-icon-sm: 8px;
+  --button-tertiary-pad-icon-md: 11px;
+  --button-tertiary-pad-x-sm: 12px;
+  --button-tertiary-pad-x-md: 16px;
+  --button-tertiary-pad-y: 8px;
+  --button-tertiary-min-width-md: 80px;
   --button-tertiary-bg: transparent;
-  --button-tertiary-bg-hover: var(--color-primary-200);
+  --button-tertiary-bg-hover: var(--color-primary-100);
   --button-tertiary-bg-focus: var(--color-primary-200);
-  --button-tertiary-bg-active: var(--color-primary-300-hover);
-  --button-tertiary-fg: var(--color-primary-600);
-  --button-tertiary-fg-hover: var(--color-primary-700);
-  --button-tertiary-fg-focus: var(--color-primary-600);
-  --button-tertiary-fg-active: var(--color-primary-700);
-  --button-tertiary-fg-disabled: var(--color-secondary-200);
+  --button-tertiary-bg-active: var(--color-primary-200);
+  --button-tertiary-fg: var(--color-secondary-600);
+  --button-tertiary-fg-emphasis: var(--color-secondary-700);
+  --button-tertiary-fg-disabled: var(--color-secondary-300);
   --button-tertiary-transition:
     background-color 0.15s ease,
     color 0.15s ease;
 }
 
 /**
- * Delete / destructive outline — Figma `8813:125`.
- * Same layout as Secondary; Additional Red border and label; light rose wash on press/hover.
+ * Delete / destructive filled — Figma `8813:125`. Additional red + white label; overlays on interaction.
  */
 :root {
-  --button-delete-radius: var(--button-primary-radius);
-  --button-delete-icon: var(--button-primary-icon);
-  --button-delete-gap: var(--button-primary-gap);
-  --button-delete-pad-icon-sm: var(--button-primary-pad-icon-sm);
-  --button-delete-pad-icon-md: var(--button-primary-pad-icon-md);
-  --button-delete-pad-x-sm: var(--button-primary-pad-x-sm);
-  --button-delete-pad-x-md: var(--button-primary-pad-x-md);
-  --button-delete-pad-y: var(--button-primary-pad-y);
-  --button-delete-border-width: 1px;
-  --button-delete-bg-solid: var(--color-neutral-100);
-  --button-delete-gradient: linear-gradient(
-    to bottom,
-    var(--color-neutral-100) 0%,
-    #fff6f7 97.5%,
-    var(--color-neutral-100) 98.828%
-  );
-  --button-delete-border-default: #ff6b78;
-  --button-delete-border-hover: var(--color-additional-red);
-  --button-delete-border-focus: var(--color-additional-red);
-  --button-delete-border-active: #e63544;
-  --button-delete-border-disabled: var(--color-secondary-200);
-  --button-delete-fg: var(--color-additional-red);
-  --button-delete-fg-focus: #e02e3d;
-  --button-delete-fg-disabled: #f0b8bd;
-  --button-delete-focus-ring: rgb(255 59 75 / 35%);
-  --button-delete-bg-hover: rgb(255 59 75 / 0.08);
-  --button-delete-bg-active: rgb(255 59 75 / 0.14);
-  --button-delete-bg-disabled: var(--color-neutral-100);
-  --button-delete-transition:
-    border-color 0.15s ease,
-    color 0.15s ease,
-    background 0.15s ease;
+  --button-delete-radius-sm: 6px;
+  --button-delete-radius-md: 8px;
+  --button-delete-fill: var(--color-additional-red);
+  --button-delete-overlay-hover: rgb(0 0 0 / 4%);
+  --button-delete-overlay-active: rgb(0 0 0 / 8%);
+  --button-delete-overlay-disabled: rgb(255 255 255 / 80%);
+  --button-delete-bg-hover: linear-gradient(
+      var(--button-delete-overlay-hover),
+      var(--button-delete-overlay-hover)
+    ),
+    linear-gradient(var(--button-delete-fill), var(--button-delete-fill));
+  --button-delete-bg-active: linear-gradient(
+      var(--button-delete-overlay-active),
+      var(--button-delete-overlay-active)
+    ),
+    linear-gradient(var(--button-delete-fill), var(--button-delete-fill));
+  --button-delete-bg-disabled: linear-gradient(
+      var(--button-delete-overlay-disabled),
+      var(--button-delete-overlay-disabled)
+    ),
+    linear-gradient(var(--button-delete-fill), var(--button-delete-fill));
+  --button-delete-fg: var(--color-neutral-100);
+  --button-delete-fg-disabled-opacity: 0.72;
+  --button-delete-icon: 16px;
+  --button-delete-gap: 6px;
+  --button-delete-min-width-md: 80px;
+  --button-delete-transition: background 0.15s ease;
+  --button-delete-pad-icon-sm: 8px;
+  --button-delete-pad-icon-md: 11px;
+  --button-delete-pad-x-sm: 12px;
+  --button-delete-pad-x-md: 16px;
+  --button-delete-pad-y: 8px;
+}
+
+/** Horizontal gap between adjacent CTAs (Figma overview `8249:59` §18). */
+:root {
+  --button-group-gap: 6px;
 }

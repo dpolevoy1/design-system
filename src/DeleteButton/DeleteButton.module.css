@@ -1,6 +1,5 @@
 /**
- * Delete / destructive outline button — Figma `8813:125`.
- * Mirrors secondary chrome (border + optional gradient row) with Additional Red accents.
+ * Delete / destructive filled — Figma `8813:125`.
  */
 
 .button {
@@ -9,52 +8,51 @@
   justify-content: center;
   gap: var(--button-delete-gap);
   margin: 0;
-  border: var(--button-delete-border-width) solid var(--button-delete-border-default);
-  border-radius: var(--button-delete-radius);
+  border: none;
+  background: var(--button-delete-fill);
+  background-origin: border-box;
+  color: var(--button-delete-fg);
   font-family: Inter, system-ui, sans-serif;
   font-weight: 400;
   cursor: pointer;
   box-sizing: border-box;
   vertical-align: middle;
-  color: var(--button-delete-fg);
   transition: var(--button-delete-transition);
   -webkit-tap-highlight-color: transparent;
 }
 
-.fillSolid {
-  background: var(--button-delete-bg-solid);
+.sizeSm {
+  border-radius: var(--button-delete-radius-sm);
 }
 
-.fillGradient {
-  background: var(--button-delete-gradient);
+.sizeMd {
+  border-radius: var(--button-delete-radius-md);
 }
 
 .button:hover:not(:disabled) {
-  border-color: var(--button-delete-border-hover);
   background: var(--button-delete-bg-hover);
 }
 
 .button:focus-visible:not(:disabled) {
-  border-color: var(--button-delete-border-focus);
-  color: var(--button-delete-fg-focus);
-  outline: 2px solid var(--button-delete-focus-ring);
+  background: var(--button-delete-bg-active);
+  outline: 2px solid var(--color-primary-400-focus);
   outline-offset: 2px;
 }
 
 .button:active:not(:disabled) {
-  border-color: var(--button-delete-border-active);
-  color: var(--button-delete-fg-focus);
   background: var(--button-delete-bg-active);
 }
 
 .button:disabled {
-  border-color: var(--button-delete-border-disabled);
-  color: var(--button-delete-fg-disabled);
   background: var(--button-delete-bg-disabled);
   cursor: not-allowed;
 }
 
-/* sm — 32px */
+.button:disabled .iconWrap,
+.button:disabled .label {
+  opacity: var(--button-delete-fg-disabled-opacity);
+}
+
 .sizeSm.iconOnly {
   padding: var(--button-delete-pad-icon-sm);
   min-width: 32px;
@@ -73,7 +71,6 @@
   letter-spacing: 0.18px;
 }
 
-/* md — 38px */
 .sizeMd.iconOnly {
   padding: var(--button-delete-pad-icon-md);
   min-width: 38px;
@@ -84,6 +81,7 @@
 .sizeMd.iconText {
   padding: var(--button-delete-pad-y) var(--button-delete-pad-x-md);
   min-height: 38px;
+  min-width: var(--button-delete-min-width-md);
 }
 
 .sizeMd .label {

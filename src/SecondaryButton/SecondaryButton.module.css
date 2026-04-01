@@ -1,5 +1,5 @@
 /**
- * Secondary / outline button — Figma 8249:312 (PowerPoint / Secondary).
+ * Secondary outline — Figma `8249:312`.
  */
 
 .button {
@@ -10,48 +10,74 @@
   margin: 0;
   border: var(--button-secondary-border-width) solid
     var(--button-secondary-border-default);
-  border-radius: var(--button-secondary-radius);
   font-family: Inter, system-ui, sans-serif;
   font-weight: 400;
   cursor: pointer;
   box-sizing: border-box;
   vertical-align: middle;
   color: var(--button-secondary-fg);
+  background: var(--button-secondary-bg);
+  box-shadow: var(--button-secondary-shadow-default);
   transition: var(--button-secondary-transition);
   -webkit-tap-highlight-color: transparent;
 }
 
-.fillSolid {
-  background: var(--button-secondary-bg-solid);
+.sizeSm {
+  border-radius: var(--button-secondary-radius-sm);
 }
 
-.fillGradient {
-  background: var(--button-secondary-gradient);
+.sizeMd {
+  border-radius: var(--button-secondary-radius-md);
 }
 
 .button:hover:not(:disabled) {
   border-color: var(--button-secondary-border-hover);
+  background: var(--button-secondary-bg-hover);
+  box-shadow: var(--button-secondary-shadow-hover);
+  color: var(--button-secondary-fg);
 }
 
-.button:focus-visible:not(:disabled) {
+/* md + sm: focus ring color; sm gets primary-100 wash per Figma */
+.button.sizeSm:focus-visible:not(:disabled) {
   border-color: var(--button-secondary-border-focus);
+  background: var(--button-secondary-bg-focus-sm);
+  box-shadow: var(--button-secondary-shadow-focus-sm);
   color: var(--button-secondary-fg-focus);
   outline: 2px solid var(--color-primary-400-focus);
   outline-offset: 2px;
 }
 
-.button:active:not(:disabled) {
+.button.sizeMd:focus-visible:not(:disabled) {
   border-color: var(--button-secondary-border-focus);
+  background: var(--button-secondary-bg-focus-md);
+  box-shadow: var(--button-secondary-shadow-focus-md);
+  color: var(--button-secondary-fg-focus);
+  outline: 2px solid var(--color-primary-400-focus);
+  outline-offset: 2px;
+}
+
+.button.sizeSm:active:not(:disabled) {
+  border-color: var(--button-secondary-border-focus);
+  background: var(--button-secondary-bg-focus-sm);
+  box-shadow: var(--button-secondary-shadow-focus-sm);
+  color: var(--button-secondary-fg-focus);
+}
+
+.button.sizeMd:active:not(:disabled) {
+  border-color: var(--button-secondary-border-focus);
+  background: var(--button-secondary-bg-focus-md);
+  box-shadow: var(--button-secondary-shadow-focus-md);
   color: var(--button-secondary-fg-focus);
 }
 
 .button:disabled {
   border-color: var(--button-secondary-border-disabled);
+  background: var(--button-secondary-bg);
+  box-shadow: none;
   color: var(--button-secondary-fg-disabled);
   cursor: not-allowed;
 }
 
-/* sm — 32px */
 .sizeSm.iconOnly {
   padding: var(--button-secondary-pad-icon-sm);
   min-width: 32px;
@@ -70,7 +96,6 @@
   letter-spacing: 0.18px;
 }
 
-/* md — 38px */
 .sizeMd.iconOnly {
   padding: var(--button-secondary-pad-icon-md);
   min-width: 38px;
@@ -81,6 +106,7 @@
 .sizeMd.iconText {
   padding: var(--button-secondary-pad-y) var(--button-secondary-pad-x-md);
   min-height: 38px;
+  min-width: var(--button-secondary-min-width-md);
 }
 
 .sizeMd .label {

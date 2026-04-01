@@ -23,7 +23,8 @@ export type PrimaryButtonProps = {
  *
  * - **sm** — 32px row (icon-only square 32×32; text / icon+text vertically centered).
  * - **md** — 38px row (icon-only 38×38).
- * - States: default, `:hover`, `:focus-visible` / `:active`, `:disabled` (muted fill + label opacity).
+ * - Default fill **Primary 600**; hover/focus/active use **5% / 10% black overlays** on the same fill (Figma).
+ * - **docs/BUTTONS.md** — copy, grouping, dimensions from overview `8249:59`.
  */
 export function PrimaryButton({
   size = "md",
