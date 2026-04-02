@@ -20,7 +20,7 @@ Pin a **full commit SHA** for reproducible builds (copy from [commits on `main`]
 "@assemble/design-system": "github:dpolevoy1/design-system#<full-commit-sha>"
 ```
 
-Copy the SHA from [commits on `main`](https://github.com/dpolevoy1/design-system/commits/main) (for example after release **`0.2.2`**); replace when you upgrade.
+Copy the SHA from [commits on `main`](https://github.com/dpolevoy1/design-system/commits/main) (for example after release **`0.2.3`**); replace when you upgrade.
 
 To work on this package **inside a monorepo** next to a consumer app, point at a folder instead:
 
@@ -68,7 +68,7 @@ Import tokens once in your app shell:
 
 ### Buttons
 
-Shared layout: **`sm`** / **`md`**, **16px** icon, **6px** icon–label gap, **`md` min-width 80px**, radii **8px** (`md`) / **6px** (`sm`). **Product rules** (copy, spacing, ellipsis): **[`docs/BUTTONS.md`](./docs/BUTTONS.md)** · Figma overview [**8249:59**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-59).
+Shared layout: **`sm`** / **`md`**, **16px** icon, **6px** icon–label gap, **`md` min-width 80px**, radii **8px** (`md`) / **6px** (`sm`). **Product rules** (copy, spacing, ellipsis): **[`docs/BUTTONS.md`](./docs/BUTTONS.md)** · Figma [overview **8249:59**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-59) · [Buttons hub **8249:244**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-244).
 
 | Variant | Component | Figma node |
 |---------|-----------|------------|
@@ -249,7 +249,7 @@ npx tsc --noEmit
 
 **`0.x`** — tokens and components evolve with the Assemble product; breaking changes are possible until **`1.0`**. Prefer **pinning a git SHA** in consuming apps.
 
-**`0.2.x`** — four button variants + **`docs/BUTTONS.md`**; tokens track Figma **8249:251**, **8249:312**, **8813:40**, **8813:125**, overview **8249:59**.
+**`0.2.x`** — four button variants + **`docs/BUTTONS.md`**; tokens track Figma **8249:251**, **8249:312**, **8813:40**, **8813:125**, overview **8249:59**, buttons hub **8249:244**.
 
 ## License
 

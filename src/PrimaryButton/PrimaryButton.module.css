@@ -34,9 +34,8 @@
 }
 
 .button:focus-visible:not(:disabled) {
+  /* Figma `8249:251`: focus = 10% black on Primary 600 (no separate ring). */
   background: var(--button-primary-bg-active);
-  outline: 2px solid var(--color-primary-400-focus);
-  outline-offset: 2px;
 }
 
 .button:active:not(:disabled) {

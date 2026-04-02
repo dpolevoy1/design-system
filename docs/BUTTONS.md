@@ -1,6 +1,9 @@
 # Buttons — product rules
 
-Source: [Component overview **8249:59**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-59) in **Assemble — Design system**.
+Sources in **Assemble — Design system**:
+
+- [Component overview **8249:59**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-59) — usage, copy, icons, layout, spacing.
+- [Buttons **8249:244**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-244) — variant matrix (primary, secondary, tertiary, delete, PowerPoint specials).
 
 Implementation nodes:
 
@@ -16,6 +19,13 @@ Implementation nodes:
 ## Purpose
 
 The button (CTA — call to action) **initiates an action**. Use it when you need to **capture attention** for a discrete command (vs. a low-emphasis link).
+
+---
+
+## Use cases (overview 8249:59)
+
+- In modern UIs, buttons and links can look alike; pick a **button** when you need a **strong, obvious** affordance for a command.
+- Prefer a button when the goal is to **draw the user’s attention** to a single action.
 
 ---
 
@@ -61,6 +71,13 @@ Aligned with **8249:59** §17 and component specs:
 `md` **text** and **icon+text** rows set **`min-width: 80px`** to match Figma instances.
 
 **Spacing between adjacent CTAs** in a horizontal row: **`--button-group-gap` (6px)** — §18.
+
+---
+
+## Ellipsis in labels (overview 8249:59 §10–11)
+
+- Desktop HIGs sometimes recommend “…” when more input may follow; that pattern has tradeoffs (unfamiliar users, visual balance, noise when many actions are deferred).
+- **A.Team:** avoid ellipsis in action titles in most cases; prefer a **clear verb phrase** or **helper text** next to the control. Do **not** use “…” for irreversible actions like delete.
 
 ---
 

@@ -34,9 +34,8 @@
 }
 
 .button:focus-visible:not(:disabled) {
+  /* Figma `8813:125`: focus = 8% black overlay on red fill. */
   background: var(--button-delete-bg-active);
-  outline: 2px solid var(--color-primary-400-focus);
-  outline-offset: 2px;
 }
 
 .button:active:not(:disabled) {
