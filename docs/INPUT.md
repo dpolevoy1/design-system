@@ -2,6 +2,7 @@
 
 Sources:
 
+- Component hub (Inputs): [Figma **8835:682**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-682)
 - State matrix: [Figma **8835:688**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-688)
 - Component overview: [Figma **8835:179**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-179)
 
@@ -30,7 +31,7 @@ The field has **two sizes**, similar to buttons. Prefer **Small** when the contr
 ## Layout: label, field, helper
 
 - **Label → field:** `6px` (`--input-label-gap`). Keep labels **short and specific**.
-- **Field → helper:** `4px` (`--input-helper-gap`).
+- **Field → helper:** `4px` (`--input-helper-gap`); **warning / error** stacks use **`8px`** (`--input-helper-gap-validation`, hub + matrix).
 - **Placeholder:** hint only; it should **not replace** a visible label when the label adds real context.
 - **Helper text:** use for **extra context**, **success**, **warning**, or **error** messages (`validation` + `helperText` in code).
 
@@ -50,7 +51,9 @@ The field has **two sizes**, similar to buttons. Prefer **Small** when the contr
 
 ## Icons (overview)
 
-Optional **end** adornment (e.g. clear, search). Align to the **trailing** edge; spacing from the value matches horizontal padding. If the adornment is interactive, expose an accessible name (e.g. `aria-label` on a `<button>`).
+Optional **start** (`startAdornment`) or **end** (`endAdornment`) adornments. Trailing gap is **`--input-inner-gap` (8px)** by default; use **`layout="search"`** (or **`InputSearch`**) for **12px** before trailing controls per [InputSearch rules **8855:2126**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8855-2126). Interactive controls need an accessible name (e.g. `aria-label` on `<button>`).
+
+Dedicated search field: **`InputSearch`** — see **[`INPUT_SEARCH.md`](./INPUT_SEARCH.md)**.
 
 ---
 

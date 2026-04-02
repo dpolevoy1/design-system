@@ -255,14 +255,21 @@
 }
 
 /**
- * Text input — Figma matrix `8835:688`, overview dimensions `8835:179` (§08).
+ * Text input — Figma matrix `8835:688`, overview `8835:179` (§08), component hub `8835:682`.
  * Base (`md`): height 38px, pad 7px 12px (fits 14/22 inside 1px border), radius 8px, inner gap 8px.
  * Small (`sm`): height 32px, pad 7px 12px, 12/16 type, radius 6px.
+ *
+ * InputSearch (`8855:2590`, rules `8855:2126`): icon ↔ value **6px**; value cluster ↔ trailing (e.g. clear) **12px**.
  */
 :root {
   --input-label-gap: 6px;
   --input-helper-gap: 4px;
+  /** Space before trailing `endAdornment` (default Input). */
   --input-inner-gap: 8px;
+  /** Leading search icon ↔ text (`8855:2590`). */
+  --input-search-icon-gap: 6px;
+  /** Query block ↔ trailing control e.g. `ic_clear_form` (`8855:2126` §03). */
+  --input-search-trailing-gap: 12px;
   --input-border-width: 1px;
   --input-bg: var(--color-neutral-100);
   --input-border-default: var(--color-secondary-300);
@@ -289,6 +296,8 @@
   --input-helper-success: var(--color-additional-green);
   --input-helper-warning: var(--color-additional-orange);
   --input-helper-error: var(--color-additional-red);
+  /** Warning/error: helper sits **8px** below field (`8835:682` / matrix stacks). */
+  --input-helper-gap-validation: 8px;
   --input-label-color: var(--color-neutral-700);
   --input-transition:
     border-color 0.15s ease,

@@ -1,13 +1,20 @@
-import { useId, type InputHTMLAttributes, type ReactNode } from "react";
+import {
+  forwardRef,
+  useId,
+  type InputHTMLAttributes,
+  type ReactNode,
+} from "react";
 import styles from "./Input.module.css";
 
 export type InputSize = "sm" | "md";
 
 export type InputValidation = "default" | "success" | "warning" | "error";
 
+export type InputLayout = "default" | "search";
+
 export type InputProps = {
   /**
-   * **Base** — 38px row, 8px radius, 14/22 (Figma overview §08).
+   * **Base** — 38px row, 8px radius, 14/22 (Figma overview §08 / hub `8835:682`).
    * **Small** — 32px row, 6px radius, 12/16 (dense UI / nested fields).
    */
   size?: InputSize;
@@ -15,13 +22,23 @@ export type InputProps = {
   label?: ReactNode;
   /**
    * Supporting copy below the field. Color follows `validation` when not `default`.
-   * Spacing from field: **`--input-helper-gap`** (4px, overview).
+   * Spacing from field: **`--input-helper-gap`** (4px); warning/error use **`--input-helper-gap-validation`** (8px).
    */
   helperText?: ReactNode;
   /** Drives border + focus ring + helper color for validation states (matrix `8835:688`). */
   validation?: InputValidation;
-  /** Trailing control (e.g. clear or search icon); `8px` gap from value (`--input-inner-gap`). */
+  /**
+   * Trailing control (e.g. clear / `ic_clear_form`); default gap **8px**, **12px** when `layout="search"`.
+   */
   endAdornment?: ReactNode;
+  /**
+   * Leading control (e.g. search icon). Icon ↔ value gap: **`--input-search-icon-gap`** (6px, Figma `8855:2590`).
+   */
+  startAdornment?: ReactNode;
+  /**
+   * **`search`** — trailing gap **12px** for clear / extra icons (`8855:2126`). Default **8px** before `endAdornment`.
+   */
+  layout?: InputLayout;
   className?: string;
   /** Extra class on the bordered field wrapper (not the outer root). */
   fieldClassName?: string;
@@ -29,29 +46,36 @@ export type InputProps = {
 
 /**
  * Single-line text input from
- * [Figma `8835:688`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-688) /
- * [overview `8835:179`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-179).
+ * [Figma hub `8835:682`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-682),
+ * matrix [`8835:688`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-688),
+ * overview [`8835:179`](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-179).
  * Import `tokens/color-palette.css` for `--input-*` tokens.
  *
  * Product rules: **[`docs/INPUT.md`](../../docs/INPUT.md)**.
  */
-export function Input({
-  size = "md",
-  label,
-  helperText,
-  validation = "default",
-  endAdornment,
-  className = "",
-  fieldClassName = "",
-  disabled,
-  id: idProp,
-  "aria-describedby": ariaDescribedByProp,
-  "aria-invalid": ariaInvalidProp,
-  ...rest
-}: InputProps) {
+export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+  {
+    size = "md",
+    label,
+    helperText,
+    validation = "default",
+    endAdornment,
+    startAdornment,
+    layout = "default",
+    className = "",
+    fieldClassName = "",
+    disabled,
+    id: idProp,
+    "aria-describedby": ariaDescribedByProp,
+    "aria-invalid": ariaInvalidProp,
+    ...rest
+  },
+  ref,
+) {
   const uid = useId().replace(/:/g, "");
   const hasLabel = label != null && label !== "" && label !== false;
   const hasHelper = helperText != null && helperText !== "" && helperText !== false;
+  const hasStart = startAdornment != null;
   const inputId =
     idProp ??
     (hasLabel || hasHelper ? `assemble-input-${uid}` : undefined);
@@ -81,11 +105,19 @@ export function Input({
     ariaInvalidProp ??
     (validation === "error" ? true : undefined);
 
+  const rootExtra =
+    validation === "warning" || validation === "error"
+      ? styles.validationAlert
+      : "";
+
+  const fieldLayout =
+    layout === "search" ? styles.layoutSearch : "";
+
   return (
     <div
       className={`${styles.root} ${
         size === "sm" ? styles.sizeSm : styles.sizeMd
-      } ${className}`.trim()}
+      } ${rootExtra} ${className}`.trim()}
     >
       {hasLabel ? (
         <label htmlFor={inputId} className={styles.label}>
@@ -95,16 +127,24 @@ export function Input({
       <div
         className={`${styles.field} ${validationClass} ${
           disabled ? styles.disabled : ""
-        } ${fieldClassName}`.trim()}
+        } ${hasStart ? styles.withStart : ""} ${fieldLayout} ${fieldClassName}`.trim()}
       >
-        <input
-          id={inputId}
-          disabled={disabled}
-          className={styles.input}
-          aria-describedby={describedBy}
-          aria-invalid={ariaInvalid}
-          {...rest}
-        />
+        <div className={styles.leadingCluster}>
+          {hasStart ? (
+            <span className={styles.startAdornment} aria-hidden>
+              {startAdornment}
+            </span>
+          ) : null}
+          <input
+            ref={ref}
+            id={inputId}
+            disabled={disabled}
+            className={styles.input}
+            aria-describedby={describedBy}
+            aria-invalid={ariaInvalid}
+            {...rest}
+          />
+        </div>
         {endAdornment != null ? (
           <span className={styles.adornment}>{endAdornment}</span>
         ) : null}
@@ -120,4 +160,4 @@ export function Input({
       ) : null}
     </div>
   );
-}
+});

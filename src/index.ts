@@ -29,6 +29,12 @@ export {
 export {
   Input,
   type InputProps,
+  type InputLayout,
   type InputSize,
   type InputValidation,
 } from "./Input";
+export {
+  InputSearch,
+  SearchGlyph,
+  type InputSearchProps,
+} from "./InputSearch";

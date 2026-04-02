@@ -1,5 +1,5 @@
 /**
- * Text field — Figma `8835:688` states, `8835:179` layout (label / helper gaps).
+ * Text field — Figma `8835:688` states, `8835:179` layout, hub `8835:682`.
  */
 
 .root {
@@ -9,6 +9,10 @@
   width: 100%;
   max-width: 100%;
   font-family: Inter, system-ui, sans-serif;
+}
+
+.root.validationAlert .helper {
+  margin-top: var(--input-helper-gap-validation);
 }
 
 .label {
@@ -25,7 +29,7 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  gap: var(--input-inner-gap);
+  gap: var(--input-trailing-gap, var(--input-inner-gap));
   width: 100%;
   margin: 0;
   padding: var(--input-pad-y-md) var(--input-pad-x);
@@ -34,6 +38,22 @@
   background: var(--input-bg);
   box-shadow: var(--input-shadow-default);
   transition: var(--input-transition);
+}
+
+.field.layoutSearch {
+  --input-trailing-gap: var(--input-search-trailing-gap);
+}
+
+.leadingCluster {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+}
+
+.field.withStart .leadingCluster {
+  gap: var(--input-search-icon-gap);
 }
 
 .sizeMd .field {
@@ -137,6 +157,10 @@
   line-height: inherit;
 }
 
+.leadingCluster .input {
+  flex: 1 1 auto;
+}
+
 .sizeMd .input {
   font-size: var(--input-font-md-size);
   line-height: var(--input-font-md-line);
@@ -165,6 +189,18 @@
 
 .input:focus {
   outline: none;
+}
+
+.startAdornment {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secondary-500);
+}
+
+.startAdornment svg {
+  display: block;
 }
 
 .adornment {
