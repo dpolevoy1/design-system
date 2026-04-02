@@ -49,7 +49,7 @@ export default defineConfig({
 
 | Subpath | Contents |
 |---------|----------|
-| `@assemble/design-system` | `Tooltip`, `ToggleIndicator`, `Spinner`, `Input`, `InputSearch`, `PrimaryButton`, `SecondaryButton`, `TertiaryButton`, `DeleteButton`, … |
+| `@assemble/design-system` | `Tooltip`, `ToggleIndicator`, `Spinner`, `Input`, `InputSearch`, `DropdownTrigger`, `DropdownList`, `PrimaryButton`, `SecondaryButton`, `TertiaryButton`, `DeleteButton`, … |
 | `@assemble/design-system/tooltip` | Tooltip |
 | `@assemble/design-system/toggle-indicator` | Toggle |
 | `@assemble/design-system/spinner` | Spinner |
@@ -59,6 +59,7 @@ export default defineConfig({
 | `@assemble/design-system/delete-button` | Delete CTA button / Destructive button |
 | `@assemble/design-system/input` | Single-line text field (`Input`) |
 | `@assemble/design-system/input-search` | Search field (`InputSearch`) |
+| `@assemble/design-system/dropdown-menu` | Dropdown trigger + list primitives |
 | `@assemble/design-system/tokens/color-palette.css` | Palette + **`--toggle-*`** + **`--button-*`** + **`--input-*`** |
 
 Import tokens once in your app shell:
@@ -119,21 +120,55 @@ import "@assemble/design-system/tokens/color-palette.css";
 />
 ```
 
+### Dropdown menu
+
+Trigger + list primitives from [**8866:1480**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8866-1480) with usage rules from [**8866:1112**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8866-1112). Product guidance: **[`docs/DROPDOWN.md`](./docs/DROPDOWN.md)**.
+
+```tsx
+import {
+  DropdownTrigger,
+  DropdownList,
+  DropdownListItem,
+  DropdownListTitle,
+} from "@assemble/design-system";
+import "@assemble/design-system/tokens/color-palette.css";
+
+<DropdownTrigger
+  open={open}
+  onClick={() => setOpen((v) => !v)}
+  aria-haspopup="listbox"
+>
+  Select priority
+</DropdownTrigger>
+
+{open ? (
+  <DropdownList role="listbox" aria-label="Priority">
+    <DropdownListItem selected>High priority</DropdownListItem>
+    <DropdownListItem>Medium priority</DropdownListItem>
+    <DropdownListItem>Low priority</DropdownListItem>
+    <DropdownListTitle>Blocked</DropdownListTitle>
+    <DropdownListItem disabled>Archived value</DropdownListItem>
+  </DropdownList>
+) : null}
+```
+
 ---
 
 ## Contents
 
 | Path | Description |
 |------|-------------|
-| [`tokens/color-palette.css`](./tokens/color-palette.css) | Full palette, **`--toggle-*`**, **`--button-*`**, **`--input-*`** (buttons [8249:59](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-59); inputs [8835:179](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-179) / [8835:688](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-688) / search [8855:2590](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8855-2590)). |
+| [`tokens/color-palette.css`](./tokens/color-palette.css) | Full palette, **`--toggle-*`**, **`--button-*`**, **`--input-*`**, **`--dropdown-*`** (buttons [8249:59](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-59); inputs [8835:179](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-179) / [8835:688](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-688) / search [8855:2590](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8855-2590) / dropdown [8866:1480](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8866-1480)). |
 | [`src/Tooltip`](./src/Tooltip) | Default tooltip: dark panel, label + optional shortcut; **pointer** to the **right** and **slightly below** the cursor. |
 | [`src/ToggleIndicator`](./src/ToggleIndicator) | Pill switch **thumb/track** only. Parent control must spread **`toggleRowDataProps()`** and set **`aria-disabled`** when needed so hover / focus / disabled styles apply (Figma [8096:64](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/%E2%9A%92%EF%B8%8F-Assemble--Design-system?node-id=8096-64&m=dev) matrix). |
 | [`docs/TOGGLE.md`](./docs/TOGGLE.md) | **Full spec:** use cases, click targets, immediate apply, layout (`--toggle-label-gap` 8px), no toggle-level errors, disabled as “locked”. |
 | [`docs/BUTTONS.md`](./docs/BUTTONS.md) | **Button usage** from Figma [**8249:59**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-59): labels, icons, dimensions, group gap. |
 | [`docs/INPUT.md`](./docs/INPUT.md) | **Input usage** from [**8835:179**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-179) + states [**8835:688**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-688); hub [**8835:682**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8835-682). |
 | [`docs/INPUT_SEARCH.md`](./docs/INPUT_SEARCH.md) | **InputSearch** rules from [**8855:2126**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8855-2126). |
+| [`docs/DROPDOWN.md`](./docs/DROPDOWN.md) | **Dropdown trigger + list** rules from [**8866:1112**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8866-1112) and component node [**8866:1480**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8866-1480). |
 | [`src/Input`](./src/Input) | **`<Input />`** — label, helper, `validation`, `startAdornment`, `endAdornment`, `layout`. |
 | [`src/InputSearch`](./src/InputSearch) | **`<InputSearch />`** — leading icon, optional **`clearable`**, Figma [**8855:2590**](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8855-2590). |
+| [`src/DropdownMenu`](./src/DropdownMenu) | **`<DropdownTrigger />`**, **`<DropdownList />`**, item/title/footer primitives. |
 | [`src/Spinner`](./src/Spinner) | **Line** indeterminate spinner (`0.9s` linear rotation). Variants: **neutral** (`--color-neutral-100`) and **primary** (`--color-primary-600`). Sizes **sm**–**xl** (12–24px). |
 | [`src/PrimaryButton`](./src/PrimaryButton) | **PowerPoint primary** — filled CTA; **`sm`** / **`md`**; icon / text / both ([Figma 8249:251](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-251)). |
 | [`src/SecondaryButton`](./src/SecondaryButton) | **Secondary** — bordered, flat surface, elevation shadows; focus ring ([8249:312](https://www.figma.com/design/MHT2FB3YBrO2auBzNTbCkD/?node-id=8249-312)). |

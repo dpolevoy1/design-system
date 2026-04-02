@@ -319,3 +319,55 @@
   --input-helper-line: 16px;
   --input-helper-tracking: 0.18px;
 }
+
+/**
+ * Dropdown menu — trigger + list
+ * Trigger component `8866:1480`, rules `8866:1112`, list section `8867:63093`.
+ */
+:root {
+  --dropdown-trigger-height-md: 38px;
+  --dropdown-trigger-height-sm: 32px;
+  --dropdown-trigger-pad-x: 12px;
+  --dropdown-trigger-pad-y-md: 8px;
+  --dropdown-trigger-pad-y-sm: 7px;
+  --dropdown-trigger-radius-md: 8px;
+  --dropdown-trigger-radius-sm: 6px;
+  --dropdown-trigger-content-gap: 12px;
+  --dropdown-trigger-text-gap: 6px;
+  --dropdown-trigger-bg: var(--color-neutral-100);
+  --dropdown-trigger-bg-hover: var(--color-neutral-200);
+  --dropdown-trigger-border-default: var(--color-secondary-300);
+  --dropdown-trigger-border-hover: var(--color-secondary-400);
+  --dropdown-trigger-border-focus: var(--color-primary-600);
+  --dropdown-trigger-border-disabled: var(--color-secondary-200);
+  --dropdown-trigger-border-warning: var(--color-additional-orange);
+  --dropdown-trigger-text: var(--color-neutral-700);
+  --dropdown-trigger-text-disabled: var(--color-secondary-200);
+  --dropdown-trigger-placeholder: var(--color-neutral-600);
+  --dropdown-trigger-helper-gap: 4px;
+  --dropdown-trigger-helper-default: var(--color-secondary-500);
+  --dropdown-trigger-helper-warning: var(--color-additional-orange);
+  --dropdown-trigger-shadow-default: 0 1px 2px rgb(0 0 0 / 5%);
+  --dropdown-trigger-shadow-hover: 0 1px 4px rgb(0 0 0 / 8%);
+  --dropdown-trigger-shadow-focus: 0 0 0 3px rgb(23 69 247 / 12%);
+  --dropdown-trigger-shadow-warning: 0 1px 2px rgb(255 122 0 / 5%);
+  --dropdown-trigger-shadow-warning-focus: 0 0 0 3px rgb(255 122 0 / 12%);
+
+  --dropdown-list-radius: 12px;
+  --dropdown-list-border: var(--color-neutral-400-list-outline);
+  --dropdown-list-bg: var(--color-neutral-100);
+  --dropdown-list-shadow: 0 0 10px 0 rgb(0 0 0 / 8%);
+  --dropdown-list-title-height: 32px;
+  --dropdown-list-title-color: var(--color-secondary-500);
+  --dropdown-list-item-height: 38px;
+  --dropdown-list-item-pad-x: 8px;
+  --dropdown-list-item-pad-y: 7px;
+  --dropdown-list-item-gap: 6px;
+  --dropdown-list-item-radius: 6px;
+  --dropdown-list-item-text: var(--color-neutral-700);
+  --dropdown-list-item-description: var(--color-secondary-500);
+  --dropdown-list-item-hover-bg: var(--color-primary-100);
+  --dropdown-list-item-selected-bg: var(--color-primary-200);
+  --dropdown-list-item-disabled-text: var(--color-secondary-200);
+  --dropdown-list-footer-height: 32px;
+}

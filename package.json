@@ -48,6 +48,10 @@
     "./input-search": {
       "types": "./src/InputSearch/index.ts",
       "default": "./src/InputSearch/index.ts"
+    },
+    "./dropdown-menu": {
+      "types": "./src/DropdownMenu/index.ts",
+      "default": "./src/DropdownMenu/index.ts"
     }
   },
   "files": [
